@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bswg51ka5dvg3"]
+
+[ext_resource type="Script" uid="uid://cuf1503rwwt52" path="res://src/communication/snap_7_cpp.gd" id="1_nxf1o"]
+
+[node name="Snap7cpp" type="Snap7Wrapper"]
+script = ExtResource("1_nxf1o")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
