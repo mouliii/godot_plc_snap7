@@ -1,15 +1,14 @@
 extends Snap7Wrapper
 
+#TODO rename 'wrapper'
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pollRate = 0.1
+	pollRate = 0.150
+	$Timer.wait_time = pollRate
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
-
 
 func _on_timer_timeout() -> void:
 	if IsConnected():
