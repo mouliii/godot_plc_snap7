@@ -5,8 +5,8 @@ import sys
 from methods import print_error
 
 
-libname = "snap7Wrapper"
-projectdir = "../../"
+libname = "EXTENSION-NAME"
+projectdir = "demo"
 
 localEnv = Environment(tools=["default"], PLATFORM="")
 
@@ -37,14 +37,8 @@ Run the following command to download godot-cpp:
 
 env = SConscript("godot-cpp/SConstruct", {"env": env, "customs": customs})
 
-env.Append(CPPPATH=["my_extension/"])
-
-env.Append(LIBPATH=["my_extension/snap7bin/win64"])
-env.Append(LIBS=["snap7"])
-env.Install("../../bin/windows/", "my_extension/snap7bin/win64/snap7.dll")
-
-
-sources = Glob("my_extension/*.cpp")
+env.Append(CPPPATH=["src/"])
+sources = Glob("src/*.cpp")
 
 if env["target"] in ["editor", "template_debug"]:
     try:
