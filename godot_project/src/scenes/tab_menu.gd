@@ -26,6 +26,7 @@ func _on_connect_button_pressed() -> void:
 		print("connection failed")
 	else:
 		print("connected to PLC!")
+	UpdateConnectionStatus()
 
 func _on_vsync_button_pressed() -> void:
 	var mode = DisplayServer.window_get_vsync_mode()
