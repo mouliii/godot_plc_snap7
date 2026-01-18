@@ -46,9 +46,12 @@ func SetTag(tag:PLCTag, isInput:bool, offset:Array)->Array:
 			tag.offset = offset[0]
 			tag.bit = offset[1]
 		Snap7Cpp.DATA_TYPE.INT, Snap7Cpp.DATA_TYPE.WORD, Snap7Cpp.DATA_TYPE.REAL:
-			tag.offset = offset[0] + 1
-			newOffset[0] += 1
-			tag.bit = 0
+			if tag.bit != 0:
+				tag.offset = offset[0] + 1
+				newOffset[0] += 1
+				tag.bit = 0
+			else:
+				tag.offset = offset[0]
 		_:
 			push_error("datatype: ", tag.dataType, " not implemented in automatic XML creator")
 

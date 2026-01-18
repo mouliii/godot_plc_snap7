@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dg45do12wrruw"]
+[gd_scene load_steps=31 format=3 uid="uid://dg45do12wrruw"]
 
 [ext_resource type="Script" uid="uid://ddud7f7oh2oy0" path="res://src/scenes/scene_2.gd" id="1_3md5n"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_xne4l"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dl1rlaostqwdl" path="res://src/premades/color_sensor.tscn" id="5_a1lyx"]
 [ext_resource type="PackedScene" uid="uid://dd42maamm6kqs" path="res://src/premades/rotation_arm.tscn" id="5_a4wr3"]
 [ext_resource type="PackedScene" uid="uid://jvcga1w45fq7" path="res://src/premades/box.tscn" id="5_bt6h0"]
+[ext_resource type="PackedScene" uid="uid://b561w08yjmd1m" path="res://src/premades/retroreflector_sensor.tscn" id="8_7hk55"]
 [ext_resource type="PackedScene" uid="uid://bmme0h7ukco7h" path="res://src/utility/tag_list_exporter.tscn" id="10_a4wr3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt6h0"]
@@ -84,18 +85,18 @@ shape = SubResource("ConvexPolygonShape3D_a1lyx")
 
 [node name="Machines" type="Node" parent="."]
 
+[node name="Mount" parent="Machines" instance=ExtResource("4_bt6h0")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.0279956, -0.6801665)
+
+[node name="ColorSensor" parent="Machines/Mount" instance=ExtResource("5_a1lyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4504516, 0)
+
 [node name="ConveyorEntry" parent="Machines" instance=ExtResource("3_nwni4")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.46027076, -2.22)
 
 [node name="PLCTag" parent="Machines/ConveyorEntry" index="2"]
 pollFromPlc = true
 memoryArea = 130
-
-[node name="3_sided_mount" parent="Machines/ConveyorEntry" instance=ExtResource("4_bt6h0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3461653e-07, 1.5677248, -1.5398335)
-
-[node name="ColorSensor" parent="Machines/ConveyorEntry/3_sided_mount" instance=ExtResource("5_a1lyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4504516, 0)
 
 [node name="ConveyorExit" parent="Machines" instance=ExtResource("3_nwni4")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.45, 2.783)
@@ -143,41 +144,50 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.6541521, 1.
 
 [node name="PLCTag" parent="Machines/ConveyorExit/RotationArm" index="2"]
 pollFromPlc = false
-memoryArea = 130
-bit = 2
+offset = 13
 
 [node name="RotationArm2" parent="Machines/ConveyorExit" instance=ExtResource("5_a4wr3")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.654152, 1.1627927, 0.6362777)
 
 [node name="PLCTag" parent="Machines/ConveyorExit/RotationArm2" index="2"]
 pollFromPlc = false
-memoryArea = 130
-bit = 3
+offset = 13
+bit = 1
 
 [node name="RotationArm3" parent="Machines/ConveyorExit" instance=ExtResource("5_a4wr3")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.6541518, 1.1627927, -1.0890725)
 
 [node name="PLCTag" parent="Machines/ConveyorExit/RotationArm3" index="2"]
 pollFromPlc = false
-memoryArea = 130
-bit = 4
+offset = 13
+bit = 2
 
 [node name="Panel" parent="Machines" instance=ExtResource("4_1utjx")]
 transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 1.4308486, 1.355299, -2.3174872)
 
 [node name="PLCTag" parent="Machines/Panel/StartButton" index="2"]
 memoryArea = 131
-offset = 12
+offset = 13
+bit = 3
 
 [node name="PLCTag" parent="Machines/Panel/StopButton" index="2"]
 memoryArea = 131
-offset = 12
-bit = 1
+offset = 13
+bit = 4
 
 [node name="PLCTag" parent="Machines/Panel/ActButton" index="2"]
 memoryArea = 131
-offset = 12
-bit = 2
+offset = 13
+bit = 5
+
+[node name="RetroreflectiveSensors" parent="Machines" instance=ExtResource("8_7hk55")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.7500975, 1.4909947, 0.36458275)
+
+[node name="RayCast3D" parent="Machines/RetroreflectiveSensors" index="0"]
+target_position = Vector3(0, 0, -5)
+
+[node name="Reflector" parent="Machines/RetroreflectiveSensors" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-07, 0, -4.9086356)
 
 [node name="Logic" type="Node" parent="."]
 
@@ -254,3 +264,4 @@ visible = false
 [editable path="Machines/Panel/StartButton"]
 [editable path="Machines/Panel/StopButton"]
 [editable path="Machines/Panel/ActButton"]
+[editable path="Machines/RetroreflectiveSensors"]

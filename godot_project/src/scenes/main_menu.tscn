@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bx8xuq74taxlq" path="res://src/images/fac_img.png" id="1_mob6k"]
 [ext_resource type="Script" uid="uid://8mesn4488jr" path="res://src/scenes/main_menu.gd" id="1_rkeyg"]
-[ext_resource type="Texture2D" uid="uid://v7jp10vttvaa" path="res://icon.svg" id="2_rkeyg"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_rkeyg"]
 [ext_resource type="Texture2D" uid="uid://di5lpn0g0aodg" path="res://src/images/scene1_thumbnail.png" id="3_iaawh"]
 
 [node name="MainMenu" type="Control"]
@@ -122,7 +122,7 @@ texture = ExtResource("2_rkeyg")
 [node name="Label" type="Label" parent="HBoxContainer/Scene2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Queue of items"
+text = "Item sorter"
 
 [node name="PlayBtn" type="Button" parent="HBoxContainer/Scene2"]
 layout_mode = 2
@@ -161,5 +161,4 @@ text = "Video"
 layout_mode = 2
 text = "Export I/O table"
 
-[connection signal="pressed" from="HBoxContainer/Scene1/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="HBoxContainer/Scene1/VideoBtn" to="." method="_on_video_btn_pressed"]

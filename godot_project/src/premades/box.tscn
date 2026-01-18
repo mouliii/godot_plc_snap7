@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://dwee3yn4jm6h7" path="res://src/premades/box.gd" id="1_x1vn8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ncqlj"]
+resource_local_to_scene = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_1cauq"]
+[sub_resource type="BoxMesh" id="BoxMesh_1tj6b"]
 size = Vector3(1, 0.5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1hqvy"]
@@ -19,7 +20,7 @@ faultRate = 0.0
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_ncqlj")
-mesh = SubResource("BoxMesh_1cauq")
+mesh = SubResource("BoxMesh_1tj6b")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -31,6 +31,7 @@ func _on_box_spawner_body_exited(_body: Node3D) -> void:
 					box.color = Color(0,255,0)
 				2:
 					box.color = Color(0,0,255)
+		box.color = box.color * 0.2
 
 
 func _on_fault_deleter_body_entered(_body: Node3D) -> void:

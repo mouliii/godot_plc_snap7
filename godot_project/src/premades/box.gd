@@ -6,7 +6,8 @@ extends RigidBody3D
 		return color
 	set(newColor):
 		color = newColor
-		$Mesh.material_override.set_shader_parameter("albedo_color", color)
+		#$Mesh.material_override.set_shader_parameter("albedo_color", color)
+		$Mesh.material_override.albedo_color = color
 
 var forceObjects:Array[ForceObjectData] = []
 var faulty:bool = false
