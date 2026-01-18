@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Tagtable name='Table'>
+<!-- exported from Godot -->
+<Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%Q0.0'>ConveyorEntry</Tag>
+<Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%MW11'>ColorSensor</Tag>
+<Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%Q0.1'>ConveyorExit</Tag>
+<Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M13.0'>RotationArm</Tag>
+<Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M13.1'>RotationArm2</Tag>
+<Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M13.2'>RotationArm3</Tag>
+<Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M13.3'>StartButton</Tag>
+<Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M13.4'>StopButton</Tag>
+<Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M13.5'>ActButton</Tag>
+</Tagtable>

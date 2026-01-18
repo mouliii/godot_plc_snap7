@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl1rlaostqwdl"]
+
+[ext_resource type="Script" uid="uid://p852q2l1b4ea" path="res://src/communication/plc_tag.gd" id="1_2swmx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1utjx"]
+albedo_color = Color(1, 1, 0.14509805, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bt6h0"]
+size = Vector3(0.2, 0.2, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4wr3"]
+albedo_color = Color(0.36078432, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a1lyx"]
+size = Vector3(0.05, 0.09, 0.1)
+
+[node name="ColorSensor" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_1utjx")
+mesh = SubResource("BoxMesh_bt6h0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07109332, 0)
+material_override = SubResource("StandardMaterial3D_a4wr3")
+mesh = SubResource("BoxMesh_a1lyx")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, -3.821371e-15, 3.821371e-15, 4.371139e-08, 1, 0, -1, 4.371139e-08, 0, -0.0379076, 0)
+light_color = Color(1, 0.058555663, 0.006306529, 1)
+spot_range = 1.2822169
+spot_angle = 15.456353
+
+[node name="PLCTag" type="Node" parent="."]
+script = ExtResource("1_2swmx")
+pollFromPlc = false
+dataType = 1
+metadata/_custom_type_script = "uid://p852q2l1b4ea"

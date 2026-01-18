@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dg45do12wrruw"]
+[gd_scene load_steps=30 format=3 uid="uid://dg45do12wrruw"]
 
 [ext_resource type="Script" uid="uid://ddud7f7oh2oy0" path="res://src/scenes/scene_2.gd" id="1_3md5n"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_xne4l"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cfrud1pb5giby" path="res://src/assets/3_sided_mount.blend" id="4_bt6h0"]
 [ext_resource type="PackedScene" uid="uid://tdu1j3vh5f2s" path="res://src/scenes/player.tscn" id="4_rs7ix"]
 [ext_resource type="PackedScene" uid="uid://bj5j3nkm3dder" path="res://src/scenes/tab_menu.tscn" id="5_1utjx"]
+[ext_resource type="PackedScene" uid="uid://dl1rlaostqwdl" path="res://src/premades/color_sensor.tscn" id="5_a1lyx"]
 [ext_resource type="PackedScene" uid="uid://dd42maamm6kqs" path="res://src/premades/rotation_arm.tscn" id="5_a4wr3"]
 [ext_resource type="PackedScene" uid="uid://jvcga1w45fq7" path="res://src/premades/box.tscn" id="5_bt6h0"]
+[ext_resource type="PackedScene" uid="uid://bmme0h7ukco7h" path="res://src/utility/tag_list_exporter.tscn" id="10_a4wr3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt6h0"]
 albedo_texture = ExtResource("2_xne4l")
@@ -20,18 +22,6 @@ size = Vector3(30, 0.2, 50)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a1lyx"]
 points = PackedVector3Array(14.999998, 0.1, 25, 14.999998, -0.1, 25, 14.999998, 0.1, -25, -15, 0.1, 25, -15, -0.1, 25, 14.999998, -0.1, -25, -15, 0.1, -25, -15, -0.1, -25)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1utjx"]
-albedo_color = Color(1, 1, 0.14509805, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_bt6h0"]
-size = Vector3(0.2, 0.2, 0.15)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4wr3"]
-albedo_color = Color(0.36078432, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_a1lyx"]
-size = Vector3(0.05, 0.09, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1lyx"]
 albedo_color = Color(0, 0.19215687, 1, 1)
@@ -61,6 +51,7 @@ data = PackedVector3Array(-1.25, 0.049999997, 0.65, 1.25, 0.049999997, 0.65, -1.
 size = Vector3(1.0454102, 0.8227539, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tpx8t"]
+size = Vector3(2.1929321, 1, 1.9901123)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enlml"]
 albedo_color = Color(0.7764706, 0.043137256, 0.92941177, 1)
@@ -96,27 +87,23 @@ shape = SubResource("ConvexPolygonShape3D_a1lyx")
 [node name="ConveyorEntry" parent="Machines" instance=ExtResource("3_nwni4")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.46027076, -2.22)
 
+[node name="PLCTag" parent="Machines/ConveyorEntry" index="2"]
+pollFromPlc = true
+memoryArea = 130
+
 [node name="3_sided_mount" parent="Machines/ConveyorEntry" instance=ExtResource("4_bt6h0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3461653e-07, 1.5677248, -1.5398335)
 
-[node name="ColorSensor" type="MeshInstance3D" parent="Machines/ConveyorEntry/3_sided_mount"]
+[node name="ColorSensor" parent="Machines/ConveyorEntry/3_sided_mount" instance=ExtResource("5_a1lyx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4504516, 0)
-material_override = SubResource("StandardMaterial3D_1utjx")
-mesh = SubResource("BoxMesh_bt6h0")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Machines/ConveyorEntry/3_sided_mount/ColorSensor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07109332, 0)
-material_override = SubResource("StandardMaterial3D_a4wr3")
-mesh = SubResource("BoxMesh_a1lyx")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Machines/ConveyorEntry/3_sided_mount/ColorSensor/MeshInstance3D"]
-transform = Transform3D(1, 0, -3.821371e-15, 3.821371e-15, 4.371139e-08, 1, 0, -1, 4.371139e-08, 0, -0.0379076, 0)
-light_color = Color(1, 0.058555663, 0.006306529, 1)
-spot_range = 1.2822169
-spot_angle = 15.456353
 
 [node name="ConveyorExit" parent="Machines" instance=ExtResource("3_nwni4")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.45, 2.783)
+
+[node name="PLCTag" parent="Machines/ConveyorExit" index="2"]
+pollFromPlc = true
+memoryArea = 130
+bit = 1
 
 [node name="BlueSlide" type="MeshInstance3D" parent="Machines/ConveyorExit"]
 transform = Transform3D(0.9265615, -0.3761434, 6.4202013e-09, 0.3761434, 0.9265615, -3.28835e-08, 6.4202013e-09, 3.28835e-08, 1, -1.7441432, 0.508191, -1.7839026)
@@ -154,14 +141,43 @@ shape = SubResource("ConcavePolygonShape3D_a4wr3")
 [node name="RotationArm" parent="Machines/ConveyorExit" instance=ExtResource("5_a4wr3")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.6541521, 1.1627927, 2.3125675)
 
+[node name="PLCTag" parent="Machines/ConveyorExit/RotationArm" index="2"]
+pollFromPlc = false
+memoryArea = 130
+bit = 2
+
 [node name="RotationArm2" parent="Machines/ConveyorExit" instance=ExtResource("5_a4wr3")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.654152, 1.1627927, 0.6362777)
+
+[node name="PLCTag" parent="Machines/ConveyorExit/RotationArm2" index="2"]
+pollFromPlc = false
+memoryArea = 130
+bit = 3
 
 [node name="RotationArm3" parent="Machines/ConveyorExit" instance=ExtResource("5_a4wr3")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.6541518, 1.1627927, -1.0890725)
 
+[node name="PLCTag" parent="Machines/ConveyorExit/RotationArm3" index="2"]
+pollFromPlc = false
+memoryArea = 130
+bit = 4
+
 [node name="Panel" parent="Machines" instance=ExtResource("4_1utjx")]
 transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 1.4308486, 1.355299, -2.3174872)
+
+[node name="PLCTag" parent="Machines/Panel/StartButton" index="2"]
+memoryArea = 131
+offset = 12
+
+[node name="PLCTag" parent="Machines/Panel/StopButton" index="2"]
+memoryArea = 131
+offset = 12
+bit = 1
+
+[node name="PLCTag" parent="Machines/Panel/ActButton" index="2"]
+memoryArea = 131
+offset = 12
+bit = 2
 
 [node name="Logic" type="Node" parent="."]
 
@@ -175,13 +191,14 @@ shape = SubResource("BoxShape3D_a4wr3")
 [node name="SpawnPos" type="Marker3D" parent="Logic/BoxSpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5369849, 0)
 
-[node name="Area3D" type="Area3D" parent="Logic"]
+[node name="FaultDeleter" type="Area3D" parent="Logic"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.948884)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/FaultDeleter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10482788, 0, 0.49505615)
 shape = SubResource("BoxShape3D_tpx8t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Logic/Area3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Logic/FaultDeleter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13100648, 0.53159857)
 material_override = SubResource("StandardMaterial3D_enlml")
 mesh = SubResource("PlaneMesh_djv28")
@@ -222,3 +239,18 @@ mouse_filter = 2
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.2530107, 4.4617023, -0.9673982)
 visible = false
+
+[node name="TagListExporter" parent="." instance=ExtResource("10_a4wr3")]
+
+[connection signal="body_exited" from="Logic/BoxSpawner" to="." method="_on_box_spawner_body_exited"]
+[connection signal="body_entered" from="Logic/FaultDeleter" to="." method="_on_fault_deleter_body_entered"]
+
+[editable path="Machines/ConveyorEntry"]
+[editable path="Machines/ConveyorExit"]
+[editable path="Machines/ConveyorExit/RotationArm"]
+[editable path="Machines/ConveyorExit/RotationArm2"]
+[editable path="Machines/ConveyorExit/RotationArm3"]
+[editable path="Machines/Panel"]
+[editable path="Machines/Panel/StartButton"]
+[editable path="Machines/Panel/StopButton"]
+[editable path="Machines/Panel/ActButton"]

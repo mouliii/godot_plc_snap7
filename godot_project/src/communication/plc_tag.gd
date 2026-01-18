@@ -6,7 +6,7 @@ class_name PLCTag
 @export var memoryArea = Snap7Cpp.MEM_AREA.DATA_BLOCK
 @export var value:Variant
 @export_category("Tag data")
-@export var DB_num:int = 1
+@export var DBNum:int = 1
 @export var offset:int
 @export var bit:int
 var size:int
@@ -17,6 +17,8 @@ func _ready() -> void:
 			value = false
 		Snap7Cpp.DATA_TYPE.INT:
 			value = 0
+		Snap7Cpp.DATA_TYPE.WORD:
+			value = 0
 	if pollFromPlc:
 		add_to_group("PLC_TAGS")
 
@@ -26,10 +28,10 @@ func PollPlcData()->void:
 
 ## Write to PLC
 func Write(newVal:Variant)->void:
-	Snap7Cpp.WritePlc(memoryArea, dataType, DB_num, offset, bit, newVal)
+	Snap7Cpp.WritePlc(memoryArea, dataType, DBNum, offset, bit, newVal)
 ## Read from PLC
 func Fetch()->Variant:
-	return Snap7Cpp.ReadPlc(memoryArea, dataType, DB_num, offset, bit)
+	return Snap7Cpp.ReadPlc(memoryArea, dataType, DBNum, offset, bit)
 ## Read cached value ( returns value )
 func Read()->Variant:
 	return value
