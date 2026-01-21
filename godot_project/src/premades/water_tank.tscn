@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu250x5q8t7kn"]
+
+[ext_resource type="PackedScene" uid="uid://c8auql1im5kon" path="res://src/assets/water_tank.blend" id="1_xelme"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xelme"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.22745098)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjel4"]
+albedo_color = Color(0.4765625, 0.4765625, 0.4765625, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8873e"]
+albedo_color = Color(0.82421875, 0.7153111, 0.2493593, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ir50u"]
+albedo_color = Color(0.05668375, 0.45717564, 0.875, 1)
+
+[node name="water_tank" instance=ExtResource("1_xelme")]
+
+[node name="Cylinder" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_xelme")
+
+[node name="Top" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_xjel4")
+
+[node name="Bottom" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_xjel4")
+
+[node name="Inlet" parent="." index="3"]
+material_override = SubResource("StandardMaterial3D_8873e")
+
+[node name="Outlet" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_8873e")
+
+[node name="InMotor" parent="." index="5"]
+material_override = SubResource("StandardMaterial3D_ir50u")
+
+[node name="OutMotor" parent="." index="6"]
+material_override = SubResource("StandardMaterial3D_ir50u")
