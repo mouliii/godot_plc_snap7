@@ -46,3 +46,7 @@ func RemoveForceObject(id:int)->void:
 		if obj.dataSetterID == id:
 			forceObjects.erase(obj)
 			break
+
+func SetScale(newScale:float)->void:
+	$Mesh.mesh.size *= newScale
+	$CollisionShape3D.shape.size *= newScale

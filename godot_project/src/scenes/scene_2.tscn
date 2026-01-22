@@ -52,7 +52,7 @@ data = PackedVector3Array(-1.25, 0.049999997, 0.65, 1.25, 0.049999997, 0.65, -1.
 size = Vector3(1.0454102, 0.8227539, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tpx8t"]
-size = Vector3(2.1929321, 1, 1.9901123)
+size = Vector3(2.1929321, 0.37109375, 1.9901123)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enlml"]
 albedo_color = Color(0.7764706, 0.043137256, 0.92941177, 1)
@@ -86,10 +86,15 @@ shape = SubResource("ConvexPolygonShape3D_a1lyx")
 [node name="Machines" type="Node" parent="."]
 
 [node name="Mount" parent="Machines" instance=ExtResource("4_bt6h0")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.0279956, -0.6801665)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.0279956, -0.19830017)
 
-[node name="ColorSensor" parent="Machines/Mount" instance=ExtResource("5_a1lyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4504516, 0)
+[node name="ColorSensor" parent="Machines" instance=ExtResource("5_a1lyx")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.4784472, -0.19830017)
+skeleton = NodePath("../Mount")
+
+[node name="PLCTag" parent="Machines/ColorSensor" index="1"]
+memoryArea = 131
+offset = 10
 
 [node name="ConveyorEntry" parent="Machines" instance=ExtResource("3_nwni4")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.46027076, -2.22)
@@ -140,54 +145,81 @@ physics_material_override = SubResource("PhysicsMaterial_1utjx")
 shape = SubResource("ConcavePolygonShape3D_a4wr3")
 
 [node name="RotationArm" parent="Machines/ConveyorExit" instance=ExtResource("5_a4wr3")]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.6541521, 1.1627927, 2.3125675)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.6541521, 1.1949697, 2.3125675)
+constant_linear_velocity = Vector3(0, 0, 2)
+setPointRotation = 60.0
+rotationSpeed = 5.0
 
 [node name="PLCTag" parent="Machines/ConveyorExit/RotationArm" index="2"]
-pollFromPlc = false
-offset = 13
+memoryArea = 130
+bit = 2
 
 [node name="RotationArm2" parent="Machines/ConveyorExit" instance=ExtResource("5_a4wr3")]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.654152, 1.1627927, 0.6362777)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.654152, 1.1949697, 0.6362777)
+constant_linear_velocity = Vector3(0, 0, 2)
+setPointRotation = 60.0
+rotationSpeed = 5.0
 
 [node name="PLCTag" parent="Machines/ConveyorExit/RotationArm2" index="2"]
-pollFromPlc = false
-offset = 13
-bit = 1
+memoryArea = 130
+bit = 3
 
 [node name="RotationArm3" parent="Machines/ConveyorExit" instance=ExtResource("5_a4wr3")]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.6541518, 1.1627927, -1.0890725)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.6541518, 1.1949697, -1.0890725)
+constant_linear_velocity = Vector3(0, 0, 2)
+setPointRotation = 60.0
+rotationSpeed = 5.0
 
 [node name="PLCTag" parent="Machines/ConveyorExit/RotationArm3" index="2"]
-pollFromPlc = false
-offset = 13
-bit = 2
+memoryArea = 130
+bit = 4
 
 [node name="Panel" parent="Machines" instance=ExtResource("4_1utjx")]
 transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 1.4308486, 1.355299, -2.3174872)
 
 [node name="PLCTag" parent="Machines/Panel/StartButton" index="2"]
 memoryArea = 131
-offset = 13
-bit = 3
+offset = 12
 
 [node name="PLCTag" parent="Machines/Panel/StopButton" index="2"]
 memoryArea = 131
-offset = 13
-bit = 4
+offset = 12
+bit = 1
 
 [node name="PLCTag" parent="Machines/Panel/ActButton" index="2"]
 memoryArea = 131
-offset = 13
-bit = 5
+offset = 12
+bit = 2
 
 [node name="RetroreflectiveSensors" parent="Machines" instance=ExtResource("8_7hk55")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.7500975, 1.4909947, 0.36458275)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.3909659, 1.3157948, 0.36458275)
 
 [node name="RayCast3D" parent="Machines/RetroreflectiveSensors" index="0"]
 target_position = Vector3(0, 0, -5)
 
+[node name="PLCTag" parent="Machines/RetroreflectiveSensors" index="1"]
+memoryArea = 131
+offset = 12
+bit = 3
+
 [node name="Reflector" parent="Machines/RetroreflectiveSensors" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-07, 0, -4.9086356)
+
+[node name="RetroreflectiveSensors2" parent="Machines" instance=ExtResource("8_7hk55")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.7231245, 1.6223187, 0.08858682)
+
+[node name="PLCTag" parent="Machines/RetroreflectiveSensors2" index="1"]
+memoryArea = 131
+offset = 12
+bit = 4
+
+[node name="RetroreflectiveSensors3" parent="Machines" instance=ExtResource("8_7hk55")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.7336688, 1.5455955, 5.480817)
+
+[node name="PLCTag" parent="Machines/RetroreflectiveSensors3" index="1"]
+memoryArea = 131
+offset = 12
+bit = 5
 
 [node name="Logic" type="Node" parent="."]
 
@@ -205,11 +237,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5369849, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.948884)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/FaultDeleter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10482788, 0, 0.49505615)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10482788, 0.31445313, 0.49505615)
 shape = SubResource("BoxShape3D_tpx8t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Logic/FaultDeleter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13100648, 0.53159857)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1159333, 0.53159857)
 material_override = SubResource("StandardMaterial3D_enlml")
 mesh = SubResource("PlaneMesh_djv28")
 
@@ -255,6 +287,7 @@ visible = false
 [connection signal="body_exited" from="Logic/BoxSpawner" to="." method="_on_box_spawner_body_exited"]
 [connection signal="body_entered" from="Logic/FaultDeleter" to="." method="_on_fault_deleter_body_entered"]
 
+[editable path="Machines/ColorSensor"]
 [editable path="Machines/ConveyorEntry"]
 [editable path="Machines/ConveyorExit"]
 [editable path="Machines/ConveyorExit/RotationArm"]
@@ -265,3 +298,5 @@ visible = false
 [editable path="Machines/Panel/StopButton"]
 [editable path="Machines/Panel/ActButton"]
 [editable path="Machines/RetroreflectiveSensors"]
+[editable path="Machines/RetroreflectiveSensors2"]
+[editable path="Machines/RetroreflectiveSensors3"]

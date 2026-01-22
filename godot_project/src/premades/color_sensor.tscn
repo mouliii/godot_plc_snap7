@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl1rlaostqwdl"]
+[gd_scene load_steps=7 format=3 uid="uid://dl1rlaostqwdl"]
 
 [ext_resource type="Script" uid="uid://p852q2l1b4ea" path="res://src/communication/plc_tag.gd" id="1_2swmx"]
+[ext_resource type="Script" uid="uid://46yihgl2p3a5" path="res://src/premades/color_sensor.gd" id="1_6um0l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1utjx"]
 albedo_color = Color(1, 1, 0.14509805, 1)
@@ -17,6 +18,7 @@ size = Vector3(0.05, 0.09, 0.1)
 [node name="ColorSensor" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_1utjx")
 mesh = SubResource("BoxMesh_bt6h0")
+script = ExtResource("1_6um0l")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07109332, 0)
@@ -34,3 +36,6 @@ script = ExtResource("1_2swmx")
 pollFromPlc = false
 dataType = 1
 metadata/_custom_type_script = "uid://p852q2l1b4ea"
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -2, 0)

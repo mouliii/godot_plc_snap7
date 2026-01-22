@@ -47,8 +47,8 @@ func SetTag(tag:PLCTag, isInput:bool, offset:Array)->Array:
 			tag.bit = offset[1]
 		Snap7Cpp.DATA_TYPE.INT, Snap7Cpp.DATA_TYPE.WORD, Snap7Cpp.DATA_TYPE.REAL:
 			if tag.bit != 0:
-				tag.offset = offset[0] + 1
 				newOffset[0] += 1
+				tag.offset = offset[0]
 				tag.bit = 0
 			else:
 				tag.offset = offset[0]

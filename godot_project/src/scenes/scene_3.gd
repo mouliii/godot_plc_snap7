@@ -1,5 +1,8 @@
 extends Node
 
+# sisä sylinteri, "paksuus".
+# jos mottori sätkii nii savua
+# fresnel shaderi?
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

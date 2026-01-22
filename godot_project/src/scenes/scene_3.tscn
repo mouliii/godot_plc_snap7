@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsbs68dng2av0"]
+[gd_scene load_steps=13 format=3 uid="uid://bsbs68dng2av0"]
 
+[ext_resource type="Script" uid="uid://drbvfp5tb8kjk" path="res://src/scenes/scene_3.gd" id="1_4lx8r"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_vfugf"]
 [ext_resource type="PackedScene" uid="uid://cu250x5q8t7kn" path="res://src/premades/water_tank.tscn" id="2_4lx8r"]
 [ext_resource type="PackedScene" uid="uid://tdu1j3vh5f2s" path="res://src/scenes/player.tscn" id="2_ssoq6"]
@@ -29,6 +30,7 @@ ambient_light_sky_contribution = 0.85
 tonemap_mode = 2
 
 [node name="Scene3" type="Node"]
+script = ExtResource("1_4lx8r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_pmr7k")

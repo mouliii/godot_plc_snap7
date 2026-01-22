@@ -1,6 +1,7 @@
 extends Node
 class_name PLCTag
 
+## TODO: rename enum? input /ouptut
 @export var pollFromPlc:bool = true
 @export var dataType = Snap7Cpp.DATA_TYPE.BOOL
 @export var memoryArea = Snap7Cpp.MEM_AREA.DATA_BLOCK

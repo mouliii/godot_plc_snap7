@@ -10,8 +10,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if tag.Read():
 		rotation.y = rotate_toward(rotation.y, deg_to_rad(setPointRotation), rotationSpeed * delta)
 	else:
-			rotation.y = rotate_toward(rotation.y, 0.0, rotationSpeed * delta)
+		rotation.y = rotate_toward(rotation.y, 0.0, rotationSpeed * delta)
