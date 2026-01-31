@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cc5ge4ut10bag"]
+[gd_scene format=3 uid="uid://cc5ge4ut10bag"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_n80il"]
 [ext_resource type="Script" uid="uid://dr8qy1fa0fiyn" path="res://src/scenes/scene_1.gd" id="1_yxvfj"]
@@ -42,153 +42,153 @@ size = Vector3(119.600464, 1, 127.51807)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jo0hx"]
 size = Vector3(2.3077393, 1, 2.421875)
 
-[node name="Scene1" type="Node"]
+[node name="Scene1" type="Node" unique_id=580656986]
 script = ExtResource("1_yxvfj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=344422655]
 material_override = SubResource("StandardMaterial3D_b45uy")
 mesh = SubResource("BoxMesh_dqgyo")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1042875278]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=597804799]
 visible = false
 shape = SubResource("ConvexPolygonShape3D_n80il")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1809346745]
 environment = SubResource("Environment_yxvfj")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1559905039]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.163636, 0)
 shadow_enabled = true
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_12jqq")]
+[node name="CharacterBody3D" parent="." unique_id=355646811 instance=ExtResource("2_12jqq")]
 transform = Transform3D(0.7624538, 0, 0.6470427, 0, 1, 0, -0.6470427, 0, 0.7624538, 2.9668674, 1.1871219, 6.347205)
 
-[node name="Machines" type="Node" parent="."]
+[node name="Machines" type="Node" parent="." unique_id=2032238307]
 
-[node name="Panel" parent="Machines" instance=ExtResource("4_dqgyo")]
+[node name="Panel" parent="Machines" unique_id=1102879091 instance=ExtResource("4_dqgyo")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.8861408, 1.3562814, 6.1776977)
 
-[node name="PLCTag" parent="Machines/Panel/StartButton" index="2"]
+[node name="PLCTag" parent="Machines/Panel/StartButton" parent_id_path=PackedInt32Array(1102879091, 1098110640) index="2" unique_id=1477930818]
 pollFromPlc = true
 memoryArea = 131
 offset = 10
 
-[node name="PLCTag" parent="Machines/Panel/StopButton" index="2"]
+[node name="PLCTag" parent="Machines/Panel/StopButton" parent_id_path=PackedInt32Array(1102879091, 1686049107) index="2" unique_id=500964518]
 pollFromPlc = true
 memoryArea = 131
 offset = 10
 bit = 1
 
-[node name="PLCTag" parent="Machines/Panel/ActButton" index="2"]
+[node name="PLCTag" parent="Machines/Panel/ActButton" parent_id_path=PackedInt32Array(1102879091, 1088254554) index="2" unique_id=1401327605]
 pollFromPlc = true
 memoryArea = 131
 offset = 10
 bit = 2
 
-[node name="Conveyor1" parent="Machines" instance=ExtResource("3_b45uy")]
+[node name="Conveyor1" parent="Machines" unique_id=1084294376 instance=ExtResource("3_b45uy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.842493, 0, 3.2418537)
 
-[node name="PLCTag" parent="Machines/Conveyor1" index="2"]
+[node name="PLCTag" parent="Machines/Conveyor1" index="2" unique_id=996560418]
 pollFromPlc = true
 memoryArea = 130
 
-[node name="Conveyor2" parent="Machines" instance=ExtResource("3_b45uy")]
+[node name="Conveyor2" parent="Machines" unique_id=1737833936 instance=ExtResource("3_b45uy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.842, -0.003, -1.759)
 
-[node name="PLCTag" parent="Machines/Conveyor2" index="2"]
+[node name="PLCTag" parent="Machines/Conveyor2" index="2" unique_id=996560418]
 pollFromPlc = true
 memoryArea = 130
 bit = 1
 
-[node name="SafetySwitch1" parent="Machines" instance=ExtResource("5_dqgyo")]
+[node name="SafetySwitch1" parent="Machines" unique_id=311145395 instance=ExtResource("5_dqgyo")]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -1.4067235, 0.4437154, 1.5660652)
 
-[node name="PLCTag" parent="Machines/SafetySwitch1" index="2"]
+[node name="PLCTag" parent="Machines/SafetySwitch1" index="2" unique_id=656706838]
 pollFromPlc = true
 memoryArea = 131
 offset = 10
 bit = 3
 
-[node name="SafetySwitch2" parent="Machines" instance=ExtResource("5_dqgyo")]
+[node name="SafetySwitch2" parent="Machines" unique_id=1487289489 instance=ExtResource("5_dqgyo")]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -1.4067235, 0.4437154, -3.246775)
 
-[node name="PLCTag" parent="Machines/SafetySwitch2" index="2"]
+[node name="PLCTag" parent="Machines/SafetySwitch2" index="2" unique_id=656706838]
 pollFromPlc = true
 memoryArea = 131
 offset = 10
 bit = 4
 
-[node name="RetroreflectiveSensors1" parent="Machines" instance=ExtResource("6_o0lal")]
+[node name="RetroreflectiveSensors1" parent="Machines" unique_id=1017389362 instance=ExtResource("6_o0lal")]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -1.0868495, 1.1495885, 1.3010051)
 
-[node name="PLCTag" parent="Machines/RetroreflectiveSensors1" index="1"]
+[node name="PLCTag" parent="Machines/RetroreflectiveSensors1" index="1" unique_id=2045112514]
 pollFromPlc = true
 memoryArea = 131
 offset = 10
 bit = 5
 
-[node name="Reflector" parent="Machines/RetroreflectiveSensors1" index="2"]
+[node name="Reflector" parent="Machines/RetroreflectiveSensors1" index="2" unique_id=1754906266]
 transform = Transform3D(0.9999998, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 0.9999998, 0, 0, -1.3527782)
 
-[node name="RetroreflectiveSensors2" parent="Machines" instance=ExtResource("6_o0lal")]
+[node name="RetroreflectiveSensors2" parent="Machines" unique_id=101867542 instance=ExtResource("6_o0lal")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0977645, 1.1461517, -4.1257243)
 
-[node name="PLCTag" parent="Machines/RetroreflectiveSensors2" index="1"]
+[node name="PLCTag" parent="Machines/RetroreflectiveSensors2" index="1" unique_id=2045112514]
 pollFromPlc = true
 memoryArea = 131
 offset = 10
 bit = 6
 
-[node name="Reflector" parent="Machines/RetroreflectiveSensors2" index="2"]
+[node name="Reflector" parent="Machines/RetroreflectiveSensors2" index="2" unique_id=1754906266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3728042)
 
-[node name="NBoxes" type="Label3D" parent="Machines"]
+[node name="NBoxes" type="Label3D" parent="Machines" unique_id=687253885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.877079, 3.8194795, -10.353289)
 text = "328"
 font_size = 550
 
-[node name="PLCTag" parent="Machines/NBoxes" instance=ExtResource("8_ljs8w")]
+[node name="PLCTag" parent="Machines/NBoxes" unique_id=1154108496 instance=ExtResource("8_ljs8w")]
 pollFromPlc = true
 
-[node name="Logic" type="Node" parent="."]
+[node name="Logic" type="Node" parent="." unique_id=416366838]
 
-[node name="BoxSpawner" type="Area3D" parent="Logic"]
+[node name="BoxSpawner" type="Area3D" parent="Logic" unique_id=1379921500]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8265878, 2.0776355, 5.1662655)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/BoxSpawner"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/BoxSpawner" unique_id=585505954]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4152832, 0)
 shape = SubResource("BoxShape3D_o0lal")
 
-[node name="SpawnPos" type="Marker3D" parent="Logic/BoxSpawner"]
+[node name="SpawnPos" type="Marker3D" parent="Logic/BoxSpawner" unique_id=1317458875]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5369849, 0)
 
-[node name="PlayerCatcher" type="Area3D" parent="Logic"]
+[node name="PlayerCatcher" type="Area3D" parent="Logic" unique_id=1217975775]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.390427, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/PlayerCatcher"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/PlayerCatcher" unique_id=2065514822]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19744873, -9.084419, -0.12719727)
 shape = SubResource("BoxShape3D_yxvfj")
 
-[node name="Marker3D" type="Marker3D" parent="Logic/PlayerCatcher"]
+[node name="Marker3D" type="Marker3D" parent="Logic/PlayerCatcher" unique_id=812438953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9620113, 17.795616, 6.367161)
 
-[node name="BoxDespawner" type="Area3D" parent="Logic"]
+[node name="BoxDespawner" type="Area3D" parent="Logic" unique_id=1578790595]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8106565, -0.2862267, -5.6702585)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/BoxDespawner"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/BoxDespawner" unique_id=1372230336]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11480713, 0, -0.7109375)
 shape = SubResource("BoxShape3D_jo0hx")
 
-[node name="Boxes" type="Node" parent="."]
+[node name="Boxes" type="Node" parent="." unique_id=797960912]
 
-[node name="Box" parent="Boxes" instance=ExtResource("8_jo0hx")]
+[node name="Box" parent="Boxes" unique_id=1916055873 instance=ExtResource("8_jo0hx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8246071, 4.3667607, 5.184733)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=228809679]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1099178331]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -202,7 +202,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TabMenu" parent="CanvasLayer" instance=ExtResource("10_0y4vy")]
+[node name="TabMenu" parent="CanvasLayer" unique_id=594879280 instance=ExtResource("10_0y4vy")]
 
 [connection signal="body_exited" from="Logic/BoxSpawner" to="." method="_on_box_spawner_body_exited"]
 [connection signal="body_entered" from="Logic/PlayerCatcher" to="." method="_on_player_catcher_body_entered"]

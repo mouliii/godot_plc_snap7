@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://4avcdp7o3jtd"]
+
+[ext_resource type="Script" uid="uid://cl178ftp1l1jx" path="res://src/premades/water_tank_2.gd" id="1_dnm1m"]
+[ext_resource type="PackedScene" uid="uid://cu250x5q8t7kn" path="res://src/premades/water_tank.tscn" id="1_oc5jh"]
+[ext_resource type="PackedScene" uid="uid://cd4682f5x7cop" path="res://src/communication/plc_tag.tscn" id="3_ewuma"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dnm1m"]
+height = 2.1999512
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oc5jh"]
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 0.14997764
+turbulence_noise_speed_random = 0.14
+turbulence_influence_min = 0.003
+turbulence_influence_max = 0.046000004
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnm1m"]
+albedo_color = Color(0.2509804, 0.77254903, 1, 1)
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_ewuma"]
+material = SubResource("StandardMaterial3D_dnm1m")
+size = Vector2(0.075, 0.12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lu74m"]
+albedo_color = Color(0.12941177, 0.6431373, 1, 1)
+billboard_mode = 2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xwa0q"]
+gravity = Vector3(-5, -0.59, 0)
+damping_max = 5.4220004
+turbulence_enabled = true
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.034
+
+[sub_resource type="QuadMesh" id="QuadMesh_581sf"]
+size = Vector2(0.075, 0.07)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oc5jh"]
+size = Vector3(1.011, 0.227, 0.23706055)
+
+[node name="WaterTank" type="StaticBody3D" unique_id=929764815]
+script = ExtResource("1_dnm1m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2093181723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0057373047, 0)
+shape = SubResource("CylinderShape3D_dnm1m")
+
+[node name="water_tank" parent="." unique_id=408304766 instance=ExtResource("1_oc5jh")]
+
+[node name="InflowParticles" type="GPUParticles3D" parent="." unique_id=2006350570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9815774, 0)
+amount = 32
+lifetime = 0.56
+speed_scale = 0.63
+process_material = SubResource("ParticleProcessMaterial_oc5jh")
+draw_pass_1 = SubResource("QuadMesh_ewuma")
+
+[node name="OutfloParticles" type="GPUParticles3D" parent="." unique_id=439311074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4811906, -0.92959523, -0.001437813)
+material_override = SubResource("StandardMaterial3D_lu74m")
+amount = 32
+lifetime = 0.91
+process_material = SubResource("ParticleProcessMaterial_xwa0q")
+draw_pass_1 = SubResource("QuadMesh_581sf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=20484714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0069975, -0.9318088, -0.0020751953)
+shape = SubResource("BoxShape3D_oc5jh")
+
+[node name="TankFillIn" type="Node" parent="." unique_id=995707662]
+
+[node name="PLCTag" parent="TankFillIn" unique_id=1770447292 instance=ExtResource("3_ewuma")]
+pollFromPlc = true
+dataType = 2
+
+[node name="TankEmptyOut" type="Node" parent="." unique_id=360409036]
+
+[node name="PLCTag" parent="TankEmptyOut" unique_id=632229078 instance=ExtResource("3_ewuma")]
+pollFromPlc = true
+dataType = 2
+
+[editable path="water_tank"]

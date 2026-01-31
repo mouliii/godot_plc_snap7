@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b561w08yjmd1m"]
+[gd_scene format=3 uid="uid://b561w08yjmd1m"]
 
 [ext_resource type="Script" uid="uid://bxaier58c2hd6" path="res://src/premades/retroreflector_sensor.gd" id="1_01h07"]
 [ext_resource type="Texture2D" uid="uid://oni4cg8hc7tk" path="res://src/images/texture_09.png" id="1_3hxcy"]
@@ -30,33 +30,33 @@ size = Vector3(0.08, 0.08, 0.01)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pjjeh"]
 size = Vector3(0.1, 0.1, 0.01)
 
-[node name="RetroreflectiveSensors" type="MeshInstance3D"]
+[node name="RetroreflectiveSensors" type="MeshInstance3D" unique_id=1291547689]
 material_override = SubResource("StandardMaterial3D_gk70b")
 mesh = SubResource("BoxMesh_a05fg")
 script = ExtResource("1_01h07")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1602366290]
 target_position = Vector3(0, 0, -1.5)
 collide_with_areas = true
 
-[node name="PLCTag" parent="." instance=ExtResource("2_32vpd")]
+[node name="PLCTag" parent="." unique_id=2045112514 instance=ExtResource("2_32vpd")]
 
-[node name="Reflector" type="Area3D" parent="."]
+[node name="Reflector" type="Area3D" parent="." unique_id=1754906266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4118559)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Reflector"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Reflector" unique_id=1650679077]
 material_override = SubResource("ShaderMaterial_6j2ef")
 mesh = SubResource("BoxMesh_dgevy")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Reflector"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Reflector" unique_id=1467067161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0008096695)
 material_override = SubResource("StandardMaterial3D_sjttd")
 mesh = SubResource("BoxMesh_3snmm")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Reflector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Reflector" unique_id=1955605918]
 shape = SubResource("BoxShape3D_pjjeh")
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="." unique_id=114283193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.256262, 0)
 billboard = 2
 double_sided = false

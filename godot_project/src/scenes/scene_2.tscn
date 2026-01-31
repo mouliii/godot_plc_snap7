@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dg45do12wrruw"]
+[gd_scene format=3 uid="uid://dg45do12wrruw"]
 
 [ext_resource type="Script" uid="uid://ddud7f7oh2oy0" path="res://src/scenes/scene_2.gd" id="1_3md5n"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_xne4l"]
@@ -70,199 +70,199 @@ sky = SubResource("Sky_1hqvy")
 ambient_light_sky_contribution = 0.85
 tonemap_mode = 2
 
-[node name="Scene2" type="Node"]
+[node name="Scene2" type="Node" unique_id=1480557213]
 script = ExtResource("1_3md5n")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2103672859]
 material_override = SubResource("StandardMaterial3D_bt6h0")
 mesh = SubResource("BoxMesh_a4wr3")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1977596790]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1479934181]
 visible = false
 shape = SubResource("ConvexPolygonShape3D_a1lyx")
 
-[node name="Machines" type="Node" parent="."]
+[node name="Machines" type="Node" parent="." unique_id=1114403107]
 
-[node name="Mount" parent="Machines" instance=ExtResource("4_bt6h0")]
+[node name="Mount" parent="Machines" unique_id=547946400 instance=ExtResource("4_bt6h0")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.0279956, -0.19830017)
 
-[node name="ColorSensor" parent="Machines" instance=ExtResource("5_a1lyx")]
+[node name="ColorSensor" parent="Machines" unique_id=1943113048 instance=ExtResource("5_a1lyx")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.4784472, -0.19830017)
 skeleton = NodePath("../Mount")
 
-[node name="PLCTag" parent="Machines/ColorSensor" index="1"]
+[node name="PLCTag" parent="Machines/ColorSensor" index="1" unique_id=1754421412]
 memoryArea = 131
 offset = 10
 
-[node name="ConveyorEntry" parent="Machines" instance=ExtResource("3_nwni4")]
+[node name="ConveyorEntry" parent="Machines" unique_id=1093321291 instance=ExtResource("3_nwni4")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.46027076, -2.22)
 
-[node name="PLCTag" parent="Machines/ConveyorEntry" index="2"]
+[node name="PLCTag" parent="Machines/ConveyorEntry" index="2" unique_id=996560418]
 pollFromPlc = true
 memoryArea = 130
 
-[node name="ConveyorExit" parent="Machines" instance=ExtResource("3_nwni4")]
+[node name="ConveyorExit" parent="Machines" unique_id=1394985867 instance=ExtResource("3_nwni4")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.45, 2.783)
 
-[node name="PLCTag" parent="Machines/ConveyorExit" index="2"]
+[node name="PLCTag" parent="Machines/ConveyorExit" index="2" unique_id=996560418]
 pollFromPlc = true
 memoryArea = 130
 bit = 1
 
-[node name="BlueSlide" type="MeshInstance3D" parent="Machines/ConveyorExit"]
+[node name="BlueSlide" type="MeshInstance3D" parent="Machines/ConveyorExit" unique_id=60218493]
 transform = Transform3D(0.9265615, -0.3761434, 6.4202013e-09, 0.3761434, 0.9265615, -3.28835e-08, 6.4202013e-09, 3.28835e-08, 1, -1.7441432, 0.508191, -1.7839026)
 material_override = SubResource("StandardMaterial3D_a1lyx")
 mesh = SubResource("BoxMesh_rs7ix")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Machines/ConveyorExit/BlueSlide"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Machines/ConveyorExit/BlueSlide" unique_id=1310291339]
 physics_material_override = SubResource("PhysicsMaterial_1utjx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Machines/ConveyorExit/BlueSlide/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Machines/ConveyorExit/BlueSlide/StaticBody3D" unique_id=1343996559]
 shape = SubResource("ConcavePolygonShape3D_1utjx")
 
-[node name="RedSlide" type="MeshInstance3D" parent="Machines/ConveyorExit"]
+[node name="RedSlide" type="MeshInstance3D" parent="Machines/ConveyorExit" unique_id=1976328737]
 transform = Transform3D(0.9265615, -0.3761434, 6.4202013e-09, 0.3761434, 0.9265615, -3.28835e-08, 6.4202013e-09, 3.28835e-08, 1, -1.7441431, 0.508191, -0.042587757)
 material_override = SubResource("StandardMaterial3D_7hk55")
 mesh = SubResource("BoxMesh_rs7ix")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Machines/ConveyorExit/RedSlide"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Machines/ConveyorExit/RedSlide" unique_id=490128564]
 physics_material_override = SubResource("PhysicsMaterial_1utjx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Machines/ConveyorExit/RedSlide/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Machines/ConveyorExit/RedSlide/StaticBody3D" unique_id=1666429962]
 shape = SubResource("ConcavePolygonShape3D_bt6h0")
 
-[node name="GreenSlide" type="MeshInstance3D" parent="Machines/ConveyorExit"]
+[node name="GreenSlide" type="MeshInstance3D" parent="Machines/ConveyorExit" unique_id=1792226946]
 transform = Transform3D(0.9265615, -0.3761434, 6.4202013e-09, 0.3761434, 0.9265615, -3.28835e-08, 6.4202013e-09, 3.28835e-08, 1, -1.744143, 0.508191, 1.5697407)
 material_override = SubResource("StandardMaterial3D_jhlf1")
 mesh = SubResource("BoxMesh_rs7ix")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Machines/ConveyorExit/GreenSlide"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Machines/ConveyorExit/GreenSlide" unique_id=340063473]
 physics_material_override = SubResource("PhysicsMaterial_1utjx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Machines/ConveyorExit/GreenSlide/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Machines/ConveyorExit/GreenSlide/StaticBody3D" unique_id=748343337]
 shape = SubResource("ConcavePolygonShape3D_a4wr3")
 
-[node name="RotationArm" parent="Machines/ConveyorExit" instance=ExtResource("5_a4wr3")]
+[node name="RotationArm" parent="Machines/ConveyorExit" unique_id=386349838 instance=ExtResource("5_a4wr3")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.6541521, 1.1949697, 2.3125675)
 constant_linear_velocity = Vector3(0, 0, 2)
 setPointRotation = 60.0
 rotationSpeed = 5.0
 
-[node name="PLCTag" parent="Machines/ConveyorExit/RotationArm" index="2"]
+[node name="PLCTag" parent="Machines/ConveyorExit/RotationArm" index="2" unique_id=1590644621]
 memoryArea = 130
 bit = 2
 
-[node name="RotationArm2" parent="Machines/ConveyorExit" instance=ExtResource("5_a4wr3")]
+[node name="RotationArm2" parent="Machines/ConveyorExit" unique_id=1520711895 instance=ExtResource("5_a4wr3")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.654152, 1.1949697, 0.6362777)
 constant_linear_velocity = Vector3(0, 0, 2)
 setPointRotation = 60.0
 rotationSpeed = 5.0
 
-[node name="PLCTag" parent="Machines/ConveyorExit/RotationArm2" index="2"]
+[node name="PLCTag" parent="Machines/ConveyorExit/RotationArm2" index="2" unique_id=1590644621]
 memoryArea = 130
 bit = 3
 
-[node name="RotationArm3" parent="Machines/ConveyorExit" instance=ExtResource("5_a4wr3")]
+[node name="RotationArm3" parent="Machines/ConveyorExit" unique_id=1329744917 instance=ExtResource("5_a4wr3")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.6541518, 1.1949697, -1.0890725)
 constant_linear_velocity = Vector3(0, 0, 2)
 setPointRotation = 60.0
 rotationSpeed = 5.0
 
-[node name="PLCTag" parent="Machines/ConveyorExit/RotationArm3" index="2"]
+[node name="PLCTag" parent="Machines/ConveyorExit/RotationArm3" index="2" unique_id=1590644621]
 memoryArea = 130
 bit = 4
 
-[node name="Panel" parent="Machines" instance=ExtResource("4_1utjx")]
+[node name="Panel" parent="Machines" unique_id=1278529505 instance=ExtResource("4_1utjx")]
 transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 1.4308486, 1.355299, -2.3174872)
 
-[node name="PLCTag" parent="Machines/Panel/StartButton" index="2"]
+[node name="PLCTag" parent="Machines/Panel/StartButton" parent_id_path=PackedInt32Array(1278529505, 1098110640) index="2" unique_id=1477930818]
 memoryArea = 131
 offset = 12
 
-[node name="PLCTag" parent="Machines/Panel/StopButton" index="2"]
+[node name="PLCTag" parent="Machines/Panel/StopButton" parent_id_path=PackedInt32Array(1278529505, 1686049107) index="2" unique_id=500964518]
 memoryArea = 131
 offset = 12
 bit = 1
 
-[node name="PLCTag" parent="Machines/Panel/ActButton" index="2"]
+[node name="PLCTag" parent="Machines/Panel/ActButton" parent_id_path=PackedInt32Array(1278529505, 1088254554) index="2" unique_id=1401327605]
 memoryArea = 131
 offset = 12
 bit = 2
 
-[node name="RetroreflectiveSensors" parent="Machines" instance=ExtResource("8_7hk55")]
+[node name="RetroreflectiveSensors" parent="Machines" unique_id=613190803 instance=ExtResource("8_7hk55")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.3909659, 1.3157948, 0.36458275)
 
-[node name="RayCast3D" parent="Machines/RetroreflectiveSensors" index="0"]
+[node name="RayCast3D" parent="Machines/RetroreflectiveSensors" index="0" unique_id=1602366290]
 target_position = Vector3(0, 0, -5)
 
-[node name="PLCTag" parent="Machines/RetroreflectiveSensors" index="1"]
+[node name="PLCTag" parent="Machines/RetroreflectiveSensors" index="1" unique_id=2045112514]
 memoryArea = 131
 offset = 12
 bit = 3
 
-[node name="Reflector" parent="Machines/RetroreflectiveSensors" index="2"]
+[node name="Reflector" parent="Machines/RetroreflectiveSensors" index="2" unique_id=1754906266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-07, 0, -4.9086356)
 
-[node name="RetroreflectiveSensors2" parent="Machines" instance=ExtResource("8_7hk55")]
+[node name="RetroreflectiveSensors2" parent="Machines" unique_id=993525991 instance=ExtResource("8_7hk55")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.7231245, 1.6223187, 0.08858682)
 
-[node name="PLCTag" parent="Machines/RetroreflectiveSensors2" index="1"]
+[node name="PLCTag" parent="Machines/RetroreflectiveSensors2" index="1" unique_id=2045112514]
 memoryArea = 131
 offset = 12
 bit = 4
 
-[node name="RetroreflectiveSensors3" parent="Machines" instance=ExtResource("8_7hk55")]
+[node name="RetroreflectiveSensors3" parent="Machines" unique_id=728858538 instance=ExtResource("8_7hk55")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.7336688, 1.5455955, 5.480817)
 
-[node name="PLCTag" parent="Machines/RetroreflectiveSensors3" index="1"]
+[node name="PLCTag" parent="Machines/RetroreflectiveSensors3" index="1" unique_id=2045112514]
 memoryArea = 131
 offset = 12
 bit = 5
 
-[node name="Logic" type="Node" parent="."]
+[node name="Logic" type="Node" parent="." unique_id=1549044570]
 
-[node name="BoxSpawner" type="Area3D" parent="Logic"]
+[node name="BoxSpawner" type="Area3D" parent="Logic" unique_id=306717592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023256183, 2.5479064, -4.1426315)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/BoxSpawner"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/BoxSpawner" unique_id=1437252495]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4152832, 0)
 shape = SubResource("BoxShape3D_a4wr3")
 
-[node name="SpawnPos" type="Marker3D" parent="Logic/BoxSpawner"]
+[node name="SpawnPos" type="Marker3D" parent="Logic/BoxSpawner" unique_id=1384707289]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5369849, 0)
 
-[node name="FaultDeleter" type="Area3D" parent="Logic"]
+[node name="FaultDeleter" type="Area3D" parent="Logic" unique_id=741359879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.948884)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/FaultDeleter"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Logic/FaultDeleter" unique_id=876540910]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10482788, 0.31445313, 0.49505615)
 shape = SubResource("BoxShape3D_tpx8t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Logic/FaultDeleter"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Logic/FaultDeleter" unique_id=1635768212]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1159333, 0.53159857)
 material_override = SubResource("StandardMaterial3D_enlml")
 mesh = SubResource("PlaneMesh_djv28")
 
-[node name="Products" type="Node" parent="."]
+[node name="Products" type="Node" parent="." unique_id=1578457639]
 
-[node name="Box" parent="Products" instance=ExtResource("5_bt6h0")]
+[node name="Box" parent="Products" unique_id=1735649116 instance=ExtResource("5_bt6h0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1920931, -3.9272156)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2022235276]
 environment = SubResource("Environment_jhlf1")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1960776603]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.163636, 0)
 shadow_enabled = true
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("4_rs7ix")]
+[node name="CharacterBody3D" parent="." unique_id=1916786804 instance=ExtResource("4_rs7ix")]
 transform = Transform3D(-0.62426144, 0, 0.78121555, 0, 1, 0, -0.78121555, 0, -0.62426144, 6.0485888, 1.292424, -5.2380743)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2024560335]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=564035316]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -276,13 +276,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TabMenu" parent="CanvasLayer" instance=ExtResource("5_1utjx")]
+[node name="TabMenu" parent="CanvasLayer" unique_id=221066959 instance=ExtResource("5_1utjx")]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=2054557913]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.2530107, 4.4617023, -0.9673982)
 visible = false
 
-[node name="TagListExporter" parent="." instance=ExtResource("10_a4wr3")]
+[node name="TagListExporter" parent="." unique_id=1246405681 instance=ExtResource("10_a4wr3")]
 
 [connection signal="body_exited" from="Logic/BoxSpawner" to="." method="_on_box_spawner_body_exited"]
 [connection signal="body_entered" from="Logic/FaultDeleter" to="." method="_on_fault_deleter_body_entered"]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj5j3nkm3dder"]
+[gd_scene format=3 uid="uid://bj5j3nkm3dder"]
 
 [ext_resource type="Script" uid="uid://qo874miun2vn" path="res://src/scenes/tab_menu.gd" id="1_6htx6"]
 
-[node name="TabMenu" type="Control"]
+[node name="TabMenu" type="Control" unique_id=1149962423]
 layout_mode = 3
 anchor_right = 0.2
 anchor_bottom = 0.5
@@ -10,7 +10,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6htx6")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=639226889]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.22265625, 0.22265625, 0.22265625, 0.44705883)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=992056643]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.057000004
@@ -27,76 +27,76 @@ anchor_top = 0.09900001
 anchor_right = 0.94200003
 anchor_bottom = 0.96500003
 
-[node name="IpContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="IpContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=895785412]
 layout_mode = 2
 
-[node name="Ip" type="Label" parent="VBoxContainer/IpContainer"]
+[node name="Ip" type="Label" parent="VBoxContainer/IpContainer" unique_id=1137501861]
 layout_mode = 2
 text = "IP: "
 
-[node name="IpEdit" type="LineEdit" parent="VBoxContainer/IpContainer"]
+[node name="IpEdit" type="LineEdit" parent="VBoxContainer/IpContainer" unique_id=1349220970]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 placeholder_text = "127.0.0.1"
 
-[node name="PlcContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="PlcContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=935602697]
 layout_mode = 2
 
-[node name="PLC" type="Label" parent="VBoxContainer/PlcContainer"]
+[node name="PLC" type="Label" parent="VBoxContainer/PlcContainer" unique_id=612864866]
 layout_mode = 2
 text = "Plc connected:"
 
-[node name="Status" type="Label" parent="VBoxContainer/PlcContainer"]
+[node name="Status" type="Label" parent="VBoxContainer/PlcContainer" unique_id=1955738554]
 unique_name_in_owner = true
 layout_mode = 2
 text = "False"
 
-[node name="ConnectButton" type="Button" parent="VBoxContainer"]
+[node name="ConnectButton" type="Button" parent="VBoxContainer" unique_id=1787713853]
 layout_mode = 2
 text = "Connect"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1262501348]
 layout_mode = 2
 
-[node name="Empty" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Empty" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=386842761]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=1571987658]
 layout_mode = 2
 
-[node name="CurFpsLabel" type="Label" parent="VBoxContainer/HBoxContainer4"]
+[node name="CurFpsLabel" type="Label" parent="VBoxContainer/HBoxContainer4" unique_id=1382587757]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 text = "Fps: "
 
-[node name="CurFps" type="Label" parent="VBoxContainer/HBoxContainer4"]
+[node name="CurFps" type="Label" parent="VBoxContainer/HBoxContainer4" unique_id=1069783793]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 text = "144"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1044346580]
 layout_mode = 2
 
-[node name="VsyncLabel" type="Label" parent="VBoxContainer/HBoxContainer3"]
+[node name="VsyncLabel" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1455242089]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 text = "Vsync: "
 
-[node name="VsyncButton" type="CheckButton" parent="VBoxContainer/HBoxContainer3"]
+[node name="VsyncButton" type="CheckButton" parent="VBoxContainer/HBoxContainer3" unique_id=1276557268]
 layout_mode = 2
 button_pressed = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=56455328]
 layout_mode = 2
 
-[node name="FpsLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+[node name="FpsLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=2119794355]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 text = "Target fps: "
 
-[node name="FpsEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer2"]
+[node name="FpsEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer2" unique_id=2057900230]
 layout_mode = 2
 text = "60"
 max_length = 4

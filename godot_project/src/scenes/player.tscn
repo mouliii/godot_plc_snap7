@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://tdu1j3vh5f2s"]
+[gd_scene format=3 uid="uid://tdu1j3vh5f2s"]
 
 [ext_resource type="Script" uid="uid://bj1e7i0d2k7xk" path="res://src/scenes/player.gd" id="1_cusn3"]
 
@@ -18,37 +18,37 @@ size = Vector3(0.475, 0.275, 0.675)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cusn3"]
 size = Vector3(1, 2.0009766, 1)
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=65989333]
 script = ExtResource("1_cusn3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1988966712]
 material_override = SubResource("StandardMaterial3D_26beo")
 mesh = SubResource("CapsuleMesh_cusn3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1525279286]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.004791379, 0.48307347, -0.26549843)
 material_override = SubResource("StandardMaterial3D_v4rts")
 mesh = SubResource("BoxMesh_hwyk6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=612547692]
 shape = SubResource("CapsuleShape3D_l2v1k")
 
-[node name="CamPivot" type="Node3D" parent="."]
+[node name="CamPivot" type="Node3D" parent="." unique_id=266218452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5390806, -0.38997066)
 
-[node name="Camera3D" type="Camera3D" parent="CamPivot"]
+[node name="Camera3D" type="Camera3D" parent="CamPivot" unique_id=593294241]
 current = true
 fov = 100.0
 
-[node name="RayCast3D" type="RayCast3D" parent="CamPivot/Camera3D"]
+[node name="RayCast3D" type="RayCast3D" parent="CamPivot/Camera3D" unique_id=1277302669]
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="PhysicsInteraction" type="Area3D" parent="."]
+[node name="PhysicsInteraction" type="Area3D" parent="." unique_id=1640363038]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsInteraction"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsInteraction" unique_id=1328504751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0024414063, 0)
 shape = SubResource("BoxShape3D_cusn3")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://yuhu5j8qr6jp"]
+[gd_scene format=3 uid="uid://yuhu5j8qr6jp"]
 
 [ext_resource type="Script" uid="uid://6h1e000ym021" path="res://src/premades/conveyor.gd" id="1_fj2e1"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_y15b8"]
@@ -81,58 +81,58 @@ size = Vector3(5, 0.2, 1.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cxvvg"]
 size = Vector3(5, 0.222, 1.2)
 
-[node name="Conveyor" type="StaticBody3D"]
+[node name="Conveyor" type="StaticBody3D" unique_id=1946173922]
 script = ExtResource("1_fj2e1")
 beltSpeed = 1.0
 
-[node name="Belt" type="MeshInstance3D" parent="."]
+[node name="Belt" type="MeshInstance3D" parent="." unique_id=812821693]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.96, 0)
 material_override = SubResource("ShaderMaterial_6hvhb")
 mesh = SubResource("BoxMesh_ovvnk")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Belt"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Belt" unique_id=2050157458]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4417038, -0.463, 0.44169894)
 material_override = SubResource("StandardMaterial3D_w8f5i")
 mesh = SubResource("BoxMesh_b1cw4")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Belt"]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Belt" unique_id=948516612]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4417038, -0.463, -0.44424754)
 material_override = SubResource("StandardMaterial3D_w8f5i")
 mesh = SubResource("BoxMesh_b1cw4")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="Belt"]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Belt" unique_id=29475483]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0045607346, -0.463, 0.44169906)
 material_override = SubResource("StandardMaterial3D_w8f5i")
 mesh = SubResource("BoxMesh_b1cw4")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="Belt"]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Belt" unique_id=1789145071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0045607733, -0.463, -0.44424742)
 material_override = SubResource("StandardMaterial3D_w8f5i")
 mesh = SubResource("BoxMesh_b1cw4")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Belt"]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Belt" unique_id=333276303]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4449744, -0.463, 0.4416992)
 material_override = SubResource("StandardMaterial3D_w8f5i")
 mesh = SubResource("BoxMesh_b1cw4")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Belt"]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Belt" unique_id=1825462462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4449744, -0.463, -0.44424728)
 material_override = SubResource("StandardMaterial3D_w8f5i")
 mesh = SubResource("BoxMesh_b1cw4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=633539903]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.96, 0)
 shape = SubResource("BoxShape3D_0p52v")
 
-[node name="PLCTag" parent="." instance=ExtResource("4_0p52v")]
+[node name="PLCTag" parent="." unique_id=996560418 instance=ExtResource("4_0p52v")]
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=432282055]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.9752586, 0)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1279428337]
 shape = SubResource("BoxShape3D_cxvvg")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

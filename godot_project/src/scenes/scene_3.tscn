@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bsbs68dng2av0"]
+[gd_scene format=3 uid="uid://bsbs68dng2av0"]
 
 [ext_resource type="Script" uid="uid://drbvfp5tb8kjk" path="res://src/scenes/scene_3.gd" id="1_4lx8r"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_vfugf"]
-[ext_resource type="PackedScene" uid="uid://cu250x5q8t7kn" path="res://src/premades/water_tank.tscn" id="2_4lx8r"]
 [ext_resource type="PackedScene" uid="uid://tdu1j3vh5f2s" path="res://src/scenes/player.tscn" id="2_ssoq6"]
 [ext_resource type="PackedScene" uid="uid://bj5j3nkm3dder" path="res://src/scenes/tab_menu.tscn" id="3_4lx8r"]
+[ext_resource type="PackedScene" uid="uid://4avcdp7o3jtd" path="res://src/premades/water_tank2.tscn" id="3_f2k7n"]
 [ext_resource type="PackedScene" uid="uid://bmme0h7ukco7h" path="res://src/utility/tag_list_exporter.tscn" id="4_f2k7n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmr7k"]
@@ -29,41 +29,41 @@ sky = SubResource("Sky_1hqvy")
 ambient_light_sky_contribution = 0.85
 tonemap_mode = 2
 
-[node name="Scene3" type="Node"]
+[node name="Scene3" type="Node" unique_id=201406207]
 script = ExtResource("1_4lx8r")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=68282682]
 material_override = SubResource("StandardMaterial3D_pmr7k")
 mesh = SubResource("BoxMesh_pwfma")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1779272492]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=150870026]
 visible = false
 shape = SubResource("ConvexPolygonShape3D_c8vno")
 
-[node name="Machines" type="Node" parent="."]
+[node name="Machines" type="Node" parent="." unique_id=993451509]
 
-[node name="water_tank" parent="Machines" instance=ExtResource("2_4lx8r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2273176, 0)
+[node name="WaterTank" parent="Machines" unique_id=929764815 instance=ExtResource("3_f2k7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2111975, 0)
 
-[node name="Logic" type="Node" parent="."]
+[node name="Logic" type="Node" parent="." unique_id=819369648]
 
-[node name="Products" type="Node" parent="."]
+[node name="Products" type="Node" parent="." unique_id=696378977]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1084273495]
 environment = SubResource("Environment_mwirs")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=254671839]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.163636, 0)
 shadow_enabled = true
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_ssoq6")]
+[node name="CharacterBody3D" parent="." unique_id=1650901872 instance=ExtResource("2_ssoq6")]
 transform = Transform3D(-0.62426144, 0, 0.78121555, 0, 1, 0, -0.78121555, 0, -0.62426144, 6.0485888, 1.292424, -5.2380743)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=850908962]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1444163732]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -77,6 +77,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TabMenu" parent="CanvasLayer" instance=ExtResource("3_4lx8r")]
+[node name="TabMenu" parent="CanvasLayer" unique_id=2017822390 instance=ExtResource("3_4lx8r")]
 
-[node name="TagListExporter" parent="." instance=ExtResource("4_f2k7n")]
+[node name="TagListExporter" parent="." unique_id=878402972 instance=ExtResource("4_f2k7n")]

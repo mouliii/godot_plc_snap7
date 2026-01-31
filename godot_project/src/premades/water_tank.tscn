@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu250x5q8t7kn"]
+[gd_scene format=3 uid="uid://cu250x5q8t7kn"]
 
 [ext_resource type="PackedScene" uid="uid://c8auql1im5kon" path="res://src/assets/water_tank.blend" id="1_xelme"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xelme"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.22745098)
+[ext_resource type="Material" uid="uid://bg3qmiujvri7s" path="res://src/shaders/water_tank_outer_wall.tres" id="2_8873e"]
+[ext_resource type="Shader" uid="uid://cqewk7oo71t8i" path="res://src/shaders/water_tank_innder_wall.gdshader" id="3_ir50u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjel4"]
 albedo_color = Color(0.4765625, 0.4765625, 0.4765625, 1)
@@ -15,25 +13,35 @@ albedo_color = Color(0.82421875, 0.7153111, 0.2493593, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ir50u"]
 albedo_color = Color(0.05668375, 0.45717564, 0.875, 1)
 
-[node name="water_tank" instance=ExtResource("1_xelme")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ueid"]
+render_priority = 0
+shader = ExtResource("3_ir50u")
+shader_parameter/waterLevel = 0.5
+shader_parameter/density = 0.99
+shader_parameter/color = Color(0.15960993, 0.38913348, 0.815625, 1)
 
-[node name="Cylinder" parent="." index="0"]
-material_override = SubResource("StandardMaterial3D_xelme")
+[node name="water_tank" unique_id=408304766 instance=ExtResource("1_xelme")]
 
-[node name="Top" parent="." index="1"]
+[node name="OuterWall" parent="." index="0" unique_id=1392572525]
+material_override = ExtResource("2_8873e")
+
+[node name="Top" parent="." index="1" unique_id=1555098337]
 material_override = SubResource("StandardMaterial3D_xjel4")
 
-[node name="Bottom" parent="." index="2"]
+[node name="Bottom" parent="." index="2" unique_id=1474574019]
 material_override = SubResource("StandardMaterial3D_xjel4")
 
-[node name="Inlet" parent="." index="3"]
+[node name="Inlet" parent="." index="3" unique_id=606880137]
 material_override = SubResource("StandardMaterial3D_8873e")
 
-[node name="Outlet" parent="." index="4"]
+[node name="Outlet" parent="." index="4" unique_id=1483257597]
 material_override = SubResource("StandardMaterial3D_8873e")
 
-[node name="InMotor" parent="." index="5"]
+[node name="InMotor" parent="." index="5" unique_id=1366881131]
 material_override = SubResource("StandardMaterial3D_ir50u")
 
-[node name="OutMotor" parent="." index="6"]
+[node name="OutMotor" parent="." index="6" unique_id=558874567]
 material_override = SubResource("StandardMaterial3D_ir50u")
+
+[node name="InnerWall" parent="." index="7" unique_id=233298479]
+material_override = SubResource("ShaderMaterial_2ueid")

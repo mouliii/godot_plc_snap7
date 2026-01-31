@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bovkjdl1hucls"]
+[gd_scene format=3 uid="uid://bovkjdl1hucls"]
 
 [ext_resource type="Texture2D" uid="uid://bx8xuq74taxlq" path="res://src/images/fac_img.png" id="1_mob6k"]
 [ext_resource type="Script" uid="uid://8mesn4488jr" path="res://src/scenes/main_menu.gd" id="1_rkeyg"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_rkeyg"]
 [ext_resource type="Texture2D" uid="uid://di5lpn0g0aodg" path="res://src/images/scene1_thumbnail.png" id="3_iaawh"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=210604696]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rkeyg")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=953525235]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,14 +23,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.53747624, 0.87913084, 1, 1)
 
-[node name="Title" type="Control" parent="."]
+[node name="Title" type="Control" parent="." unique_id=136387490]
 layout_mode = 1
 anchor_left = 0.18900001
 anchor_top = 0.031000001
 anchor_right = 0.735
 anchor_bottom = 0.32700002
 
-[node name="TextureRect" type="TextureRect" parent="Title"]
+[node name="TextureRect" type="TextureRect" parent="Title" unique_id=1830530100]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.684
@@ -45,7 +45,7 @@ expand_mode = 2
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Title"]
+[node name="Label" type="Label" parent="Title" unique_id=287227022]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.65500003
@@ -59,7 +59,7 @@ text = "PLC Sim 6000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Title"]
+[node name="Label2" type="Label" parent="Title" unique_id=1172533093]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.65500003
@@ -76,7 +76,7 @@ text = "from temu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1793592703]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.10700001
@@ -85,79 +85,79 @@ anchor_right = 0.813
 anchor_bottom = 0.92300004
 offset_top = -1.5258789e-05
 
-[node name="Scene1" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Scene1" type="VBoxContainer" parent="HBoxContainer" unique_id=101612313]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Scene1"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Scene1" unique_id=1857400249]
 custom_minimum_size = Vector2(256, 128)
 layout_mode = 2
 texture = ExtResource("3_iaawh")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/Scene1"]
+[node name="Label" type="Label" parent="HBoxContainer/Scene1" unique_id=1688867247]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Queue of items"
 
-[node name="PlayBtn" type="Button" parent="HBoxContainer/Scene1"]
+[node name="PlayBtn" type="Button" parent="HBoxContainer/Scene1" unique_id=254213422]
 layout_mode = 2
 text = "Start"
 
-[node name="VideoBtn" type="Button" parent="HBoxContainer/Scene1"]
+[node name="VideoBtn" type="Button" parent="HBoxContainer/Scene1" unique_id=186629803]
 layout_mode = 2
 text = "Video"
 
-[node name="ExportBtn" type="Button" parent="HBoxContainer/Scene1"]
+[node name="ExportBtn" type="Button" parent="HBoxContainer/Scene1" unique_id=669428084]
 layout_mode = 2
 text = "Export I/O table"
 
-[node name="Scene2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Scene2" type="VBoxContainer" parent="HBoxContainer" unique_id=890974105]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Scene2"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Scene2" unique_id=1277786273]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 texture = ExtResource("2_rkeyg")
 
-[node name="Label" type="Label" parent="HBoxContainer/Scene2"]
+[node name="Label" type="Label" parent="HBoxContainer/Scene2" unique_id=189256719]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Item sorter"
 
-[node name="PlayBtn" type="Button" parent="HBoxContainer/Scene2"]
+[node name="PlayBtn" type="Button" parent="HBoxContainer/Scene2" unique_id=1756066509]
 layout_mode = 2
 text = "Start"
 
-[node name="VideoBtn" type="Button" parent="HBoxContainer/Scene2"]
+[node name="VideoBtn" type="Button" parent="HBoxContainer/Scene2" unique_id=434885208]
 layout_mode = 2
 text = "Video"
 
-[node name="ExportBtn" type="Button" parent="HBoxContainer/Scene2"]
+[node name="ExportBtn" type="Button" parent="HBoxContainer/Scene2" unique_id=490620026]
 layout_mode = 2
 text = "Export I/O table"
 
-[node name="Scene3" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Scene3" type="VBoxContainer" parent="HBoxContainer" unique_id=896125133]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Scene3"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Scene3" unique_id=1638637230]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 texture = ExtResource("2_rkeyg")
 
-[node name="Label" type="Label" parent="HBoxContainer/Scene3"]
+[node name="Label" type="Label" parent="HBoxContainer/Scene3" unique_id=2103517777]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Analog tank"
 
-[node name="PlayBtn" type="Button" parent="HBoxContainer/Scene3"]
+[node name="PlayBtn" type="Button" parent="HBoxContainer/Scene3" unique_id=1586420896]
 layout_mode = 2
 text = "Start"
 
-[node name="VideoBtn" type="Button" parent="HBoxContainer/Scene3"]
+[node name="VideoBtn" type="Button" parent="HBoxContainer/Scene3" unique_id=1509675385]
 layout_mode = 2
 text = "Video"
 
-[node name="ExportBtn" type="Button" parent="HBoxContainer/Scene3"]
+[node name="ExportBtn" type="Button" parent="HBoxContainer/Scene3" unique_id=1705002214]
 layout_mode = 2
 text = "Export I/O table"
 

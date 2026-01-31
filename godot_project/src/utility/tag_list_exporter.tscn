@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmme0h7ukco7h"]
+[gd_scene format=3 uid="uid://bmme0h7ukco7h"]
 
 [ext_resource type="Script" uid="uid://c3jo80brqwr84" path="res://src/utility/tag_list_exporter.gd" id="1_c8v6s"]
 
-[node name="TagListExporter" type="Node"]
+[node name="TagListExporter" type="Node" unique_id=471091901]
 script = ExtResource("1_c8v6s")
