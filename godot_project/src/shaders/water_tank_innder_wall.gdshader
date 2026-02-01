@@ -5,7 +5,6 @@ uniform float waterLevel:hint_range(0.0, 1.0, 0.01) = 0.5f;
 uniform float density:hint_range(0.0, 1.0, 0.01) = 0.99f;
 uniform vec4 color:source_color;
 
-// tank height: 0,9237
 
 void vertex()
 {
@@ -13,7 +12,6 @@ void vertex()
 	VERTEX.y += waterLevel;
 	// height / 2.0f
 	VERTEX.y -= 1.0f;
-	
 }
 
 void fragment()

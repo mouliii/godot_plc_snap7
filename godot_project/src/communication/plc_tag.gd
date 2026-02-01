@@ -33,6 +33,6 @@ func Write(newVal:Variant)->void:
 ## Read from PLC
 func Fetch()->Variant:
 	return Snap7Cpp.ReadPlc(memoryArea, dataType, DBNum, offset, bit)
-## Read cached value ( returns value )
+## Read cached value ( returns value ). Does not poll. Can read be every frame.
 func Read()->Variant:
 	return value
