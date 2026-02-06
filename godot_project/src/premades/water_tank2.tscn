@@ -92,9 +92,9 @@ pollFromPlc = false
 dataType = 2
 metadata/_custom_type_script = "uid://p852q2l1b4ea"
 
-[node name="UpdatePLCTimer" type="Timer" parent="TankFillLevel" unique_id=1998665771]
+[node name="UpdatePLCTimer" type="Timer" parent="." unique_id=1998665771]
 wait_time = 0.2
 
-[connection signal="timeout" from="TankFillLevel/UpdatePLCTimer" to="." method="_on_update_plc_timer_timeout"]
+[connection signal="timeout" from="UpdatePLCTimer" to="." method="_on_update_plc_timer_timeout"]
 
 [editable path="water_tank"]
