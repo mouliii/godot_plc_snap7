@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://7yt7cvvvd23o"]
+
+[ext_resource type="Script" uid="uid://itqsx0u7rht3" path="res://src/plc_sim/draw_netoworks.gd" id="1_7c8is"]
+[ext_resource type="PackedScene" uid="uid://cu7mmv88jrkyu" path="res://src/plc_sim/BaseBlock.tscn" id="2_gv08w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7c8is"]
+bg_color = Color(0.55, 0.55, 0.55, 1)
+
+[node name="NetworkTest" type="Control" unique_id=478511759]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftPanel" type="Control" parent="." unique_id=1110835107]
+layout_mode = 1
+anchor_right = 0.2
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="LeftPanel" unique_id=878504543]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.44705883, 0.26245666, 0.27046394, 1)
+
+[node name="TopPanel" type="Control" parent="." unique_id=2070988906]
+layout_mode = 1
+anchor_left = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.2
+
+[node name="ColorRect" type="ColorRect" parent="TopPanel" unique_id=1259952642]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.30133548, 0.3073373, 0.44705883, 1)
+
+[node name="Networks" type="Control" parent="." unique_id=814199782]
+layout_mode = 1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Networks" unique_id=898721790]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.44687498, 0.44687498, 0.44687498, 1)
+
+[node name="Buttons" type="Control" parent="Networks" unique_id=65052850]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.07700001
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Networks/Buttons" unique_id=1565876889]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+
+[node name="NO_Button" type="Button" parent="Networks/Buttons/HBoxContainer" unique_id=1282051808]
+layout_mode = 2
+text = "NO"
+
+[node name="NC_Button" type="Button" parent="Networks/Buttons/HBoxContainer" unique_id=1543123935]
+layout_mode = 2
+text = "NC"
+
+[node name="Coil_Button" type="Button" parent="Networks/Buttons/HBoxContainer" unique_id=238149681]
+layout_mode = 2
+text = "Coil"
+
+[node name="Network1" type="Control" parent="Networks" unique_id=1873937409]
+layout_mode = 1
+anchor_top = 0.115
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BaseBlock" parent="Networks/Network1" unique_id=1240000913 instance=ExtResource("2_gv08w")]
+layout_mode = 0
+offset_left = 151.59999
+offset_top = -50.216003
+offset_right = 251.59999
+offset_bottom = -20.216003
+
+[node name="FoldableContainer" type="FoldableContainer" parent="Networks/Network1" unique_id=1092566960]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.98600006
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7c8is")
+title = "Network 1"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Networks/Network1/FoldableContainer" unique_id=1034511509]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Networks/Network1/FoldableContainer/VBoxContainer" unique_id=1161413647]
+layout_mode = 2
+text = "Network comment
+row 2"
+
+[node name="Space" type="Label" parent="Networks/Network1/FoldableContainer/VBoxContainer" unique_id=1663823535]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="DrawNetworks" type="Control" parent="Networks/Network1/FoldableContainer/VBoxContainer" unique_id=1014653129]
+layout_mode = 2
+script = ExtResource("1_7c8is")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Networks/Network1/BaseBlock" to="Networks/Network1/FoldableContainer/VBoxContainer/DrawNetworks" method="_on_base_block_pressed"]
