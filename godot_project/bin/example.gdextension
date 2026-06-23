@@ -7,6 +7,7 @@ compatibility_minimum = "4.5"
 ; Relative paths ensure that our GDExtension can be placed anywhere in the project directory.
 
 windows.x86_64.single.debug = "./windows/snap7Wrapper.windows.template_debug.x86_64.dll"
-windows.x86_64.double.debug = "./windows/snap7Wrapper.windows.template_debug.x86_64.double.dll"
 windows.x86_64.single.release = "./windows/snap7Wrapper.windows.template_release.x86_64.dll"
-windows.x86_64.double.release = "./windows/snap7Wrapper.windows.template_release.x86_64.double.dll"
+
+linux.x86_64.single.debug = "./linux/libsnap7Wrapper.linux.template_debug.x86_64.so"
+linux.x86_64.single.release = "./linux/libsnap7Wrapper.linux.template_release.x86_64.so"
