@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://8ok3egjpkmlw"]
+
+[ext_resource type="Script" uid="uid://bke6eyfoefvwi" path="res://src/plc_sim/test2/verticall_line_node.gd" id="1_7b5a7"]
+[ext_resource type="PackedScene" uid="uid://cby8kvk8qn60m" path="res://src/plc_sim/test2/components/position_gate_component.tscn" id="2_t7rsw"]
+[ext_resource type="PackedScene" uid="uid://dhh555p5gfcx1" path="res://src/plc_sim/test2/components/data_component.tscn" id="3_ff2na"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bwmp3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nn7w"]
+bg_color = Color(0.45625, 0.45625, 0.45625, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rki4t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rki4t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.071874976, 0.071874976, 0.071874976, 1)
+
+[node name="VerticalLineNode" type="Button" unique_id=886122038]
+custom_minimum_size = Vector2(10, 100)
+custom_maximum_size = Vector2(26, 600)
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = -980.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bwmp3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6nn7w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rki4t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rki4t")
+script = ExtResource("1_7b5a7")
+
+[node name="PositionGateComponent" parent="." unique_id=462080048 instance=ExtResource("2_t7rsw")]
+custom_maximum_size = Vector2(50, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+
+[node name="EnPos" parent="PositionGateComponent" index="0" unique_id=501856578]
+position = Vector2(0, 0)
+
+[node name="EnoPos" parent="PositionGateComponent" index="1" unique_id=482823369]
+position = Vector2(0, 100)
+
+[node name="DataComponent" parent="." unique_id=1258574538 instance=ExtResource("3_ff2na")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
+
+[node name="LineVertical" type="ColorRect" parent="." unique_id=306088370]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+
+[editable path="PositionGateComponent"]

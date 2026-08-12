@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://yc2l648erad1"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_asckg"]
+[ext_resource type="PackedScene" uid="uid://tdu1j3vh5f2s" path="res://src/scenes/player.tscn" id="2_7ak3u"]
+[ext_resource type="PackedScene" uid="uid://bj5j3nkm3dder" path="res://src/scenes/tab_menu.tscn" id="3_8u6kk"]
+[ext_resource type="PackedScene" uid="uid://bmme0h7ukco7h" path="res://src/utility/tag_list_exporter.tscn" id="4_gb4if"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0t02r"]
+albedo_texture = ExtResource("1_asckg")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_um8id"]
+size = Vector3(30, 0.2, 50)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d040t"]
+points = PackedVector3Array(14.999998, 0.1, 25, 14.999998, -0.1, 25, 14.999998, 0.1, -25, -15, 0.1, 25, -15, -0.1, 25, 14.999998, -0.1, -25, -15, 0.1, -25, -15, -0.1, -25)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q1cte"]
+
+[sub_resource type="Sky" id="Sky_1hqvy"]
+sky_material = SubResource("ProceduralSkyMaterial_q1cte")
+
+[sub_resource type="Environment" id="Environment_i47sm"]
+background_mode = 2
+sky = SubResource("Sky_1hqvy")
+ambient_light_sky_contribution = 0.85
+tonemap_mode = 2
+
+[node name="Scene_test" type="Node" unique_id=1385043517]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=409717440]
+material_override = SubResource("StandardMaterial3D_0t02r")
+mesh = SubResource("BoxMesh_um8id")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=729507389]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1569870245]
+visible = false
+shape = SubResource("ConvexPolygonShape3D_d040t")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1891518113]
+environment = SubResource("Environment_i47sm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=386792010]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.163636, 0)
+shadow_enabled = true
+
+[node name="CharacterBody3D" parent="." unique_id=65989333 instance=ExtResource("2_7ak3u")]
+transform = Transform3D(-0.62426144, 0, 0.78121555, 0, 1, 0, -0.78121555, 0, -0.62426144, 6.0485888, 1.292424, -5.2380743)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1251019715]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=700810635]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TabMenu" parent="CanvasLayer" unique_id=1149962423 instance=ExtResource("3_8u6kk")]
+
+[node name="TagListExporter" parent="." unique_id=471091901 instance=ExtResource("4_gb4if")]

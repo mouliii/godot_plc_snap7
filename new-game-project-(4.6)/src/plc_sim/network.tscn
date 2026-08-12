@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://htrx4trcd1v2"]
+
+[ext_resource type="Script" uid="uid://itqsx0u7rht3" path="res://src/plc_sim/draw_netoworks.gd" id="1_gheam"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7c8is"]
+bg_color = Color(0.55, 0.55, 0.55, 1)
+
+[node name="Network" type="FoldableContainer" unique_id=379970613]
+anchors_preset = -1
+anchor_right = 0.98600006
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7c8is")
+title = "Network 1"
+
+[node name="DrawNetworks" type="Control" parent="." unique_id=1547065838]
+layout_mode = 2
+script = ExtResource("1_gheam")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=149058932]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer" unique_id=982907253]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+placeholder_text = "Network comment"
+
+[node name="Start" type="Label" parent="VBoxContainer" unique_id=358384091]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0

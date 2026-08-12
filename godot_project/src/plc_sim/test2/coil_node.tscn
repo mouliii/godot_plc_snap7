@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cudejmdyadogi"]
+
+[ext_resource type="Script" uid="uid://bhqv5ijo24x7q" path="res://src/plc_sim/test2/coil_node.gd" id="1_e603w"]
+[ext_resource type="PackedScene" uid="uid://cby8kvk8qn60m" path="res://src/plc_sim/test2/components/position_gate_component.tscn" id="1_qg0ae"]
+[ext_resource type="PackedScene" uid="uid://bvds2oddr1hjk" path="res://src/plc_sim/test2/components/symbol_component.tscn" id="2_e603w"]
+[ext_resource type="PackedScene" uid="uid://dhh555p5gfcx1" path="res://src/plc_sim/test2/components/data_component.tscn" id="3_iglqf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bwmp3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nn7w"]
+bg_color = Color(0.45625, 0.45625, 0.45625, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rki4t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rki4t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.071874976, 0.071874976, 0.071874976, 1)
+
+[node name="coil_node" type="Button" unique_id=456210310]
+custom_minimum_size = Vector2(100, 50)
+custom_maximum_size = Vector2(100, 50)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.046000004
+offset_right = -92.98
+offset_bottom = -41.680004
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bwmp3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6nn7w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rki4t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rki4t")
+script = ExtResource("1_e603w")
+
+[node name="PositionGateComponent" parent="." unique_id=462080048 instance=ExtResource("1_qg0ae")]
+layout_mode = 1
+
+[node name="SymbolComponent" parent="." unique_id=768234340 instance=ExtResource("2_e603w")]
+layout_mode = 1
+mouse_filter = 2
+
+[node name="DataComponent" parent="." unique_id=1258574538 instance=ExtResource("3_iglqf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+nodeId = 3
+
+[editable path="PositionGateComponent"]

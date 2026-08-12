@@ -21,17 +21,15 @@ extends StaticBody3D
 			width = value
 			RebuildConveyor(length, value)
 """
-var beltDir := Vector3.ZERO
-var fod :ForceObjectData
+var fod :ForceObjectData = null
 var productsInside := []
 var prevState := false
 
 func _ready() -> void:
 	$Belt.material_override.set_shader_parameter("speed", 0.0)
-	beltDir = -transform.basis.z
 	fod = ForceObjectData.new()
 	fod.dataSetterID = get_instance_id()
-	fod.direction = beltDir
+	fod.direction = -transform.basis.z
 	fod.speed = beltSpeed
 
 func _process(_delta: float) -> void:

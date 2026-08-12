@@ -101,7 +101,7 @@ layout_mode = 2
 text = "60"
 max_length = 4
 
-[connection signal="text_submitted" from="VBoxContainer/IpContainer/IpEdit" to="." method="_on_ip_edit_text_submitted"]
+[connection signal="text_changed" from="VBoxContainer/IpContainer/IpEdit" to="." method="_on_ip_edit_text_changed"]
 [connection signal="pressed" from="VBoxContainer/ConnectButton" to="." method="_on_connect_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/VsyncButton" to="." method="_on_vsync_button_pressed"]
 [connection signal="text_submitted" from="VBoxContainer/HBoxContainer2/FpsEdit" to="." method="_on_fps_edit_text_submitted"]

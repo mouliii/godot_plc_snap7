@@ -1,0 +1,80 @@
+func DrawRail()->void:
+	await get_tree().process_frame
+	var pos = $"../VBoxContainer/Start".global_position
+	var foldable_container = $"..".get_global_rect().position
+	print(pos)
+	
+	#print(start.get_rect().position)
+	var startPoint := Vector2(start.global_position.x + offsetLeft, start.global_position.y)
+	var endPoint := startPoint + Vector2(0, 300)
+	draw_line(startPoint, endPoint, Color.RED, lineWidth)
+	nextDrawPos = (startPoint + Vector2(lineWidth / 2.0, 100))
+
+func DrawNO()->void:
+	var r := randf()
+	var g := randf()
+	var b := randf()
+	var lineColor := Color(r,g,b)
+	var gap := 20
+	var height := 10
+	var width := 100
+	var endPos := nextDrawPos + Vector2(width / 2.0 - gap, 0)
+	# ----
+	draw_line(nextDrawPos, endPos, lineColor, lineWidth)
+	
+	var verticalStart := endPos + Vector2(0, -height) # lineWidth / 2.0  < X >
+	var verticalStop :=  verticalStart + Vector2(0, 2 * height)
+	# ----|
+	draw_line(verticalStart, verticalStop, lineColor, lineWidth)
+	
+	endPos.x += gap
+	verticalStart = endPos + Vector2(0, -height)
+	verticalStop =  verticalStart + Vector2(0, 2 * height)
+	# ----| |
+	draw_line(verticalStart, verticalStop, lineColor, lineWidth)
+	
+	nextDrawPos = endPos + Vector2(width / 2.0 - gap, 0)
+	# ----| |----
+	draw_line(endPos, nextDrawPos, lineColor, lineWidth)
+
+func DrawNC()->void:
+	var r := randf()
+	var g := randf()
+	var b := randf()
+	var lineColor := Color(r,g,b)
+	var gap := 20
+	var height := 10
+	var width := 100
+	var endPos := nextDrawPos + Vector2(width / 2.0 - gap, 0)
+	# ----
+	draw_line(nextDrawPos, endPos, lineColor, lineWidth)
+	
+	var verticalStart := endPos + Vector2(0, -height) # lineWidth / 2.0  < X >
+	var verticalStop :=  verticalStart + Vector2(0, 2 * height)
+	# ----|
+	draw_line(verticalStart, verticalStop, lineColor, lineWidth)
+	draw_line(verticalStart, verticalStart + Vector2(gap, height * 2.0), lineColor, lineWidth)
+	endPos.x += gap
+	verticalStart = endPos + Vector2(0, -height)
+	verticalStop =  verticalStart + Vector2(0, 2 * height)
+	# ----| |
+	draw_line(verticalStart, verticalStop, lineColor, lineWidth)
+	
+	nextDrawPos = endPos + Vector2(width / 2.0 - gap, 0)
+	# ----| |----
+	draw_line(endPos, nextDrawPos, lineColor, lineWidth)
+
+func DrawCoil()->void:
+	var circleRadius := 10
+	# --
+	draw_line(nextDrawPos, nextDrawPos + Vector2(20,0), Color.RED, lineWidth)
+	nextDrawPos.x += 20 + circleRadius
+	# -(
+	draw_arc(nextDrawPos, circleRadius, 3 * PI / 2.0, PI / 2.0, 10, Color.WHITE, lineWidth)
+	# -( )
+	draw_arc(nextDrawPos + Vector2(10, 0), circleRadius, -PI / 2.0, PI / 2.0, 10, Color.WHITE, lineWidth)
+	nextDrawPos += Vector2(10 + 10, 0)
+	# -( )-|
+	draw_line(nextDrawPos, nextDrawPos + Vector2(10,0), Color.RED, lineWidth)
+	nextDrawPos.x += 10
+	draw_line(nextDrawPos + Vector2(0, -10), nextDrawPos + Vector2(0,10), Color.RED, lineWidth)

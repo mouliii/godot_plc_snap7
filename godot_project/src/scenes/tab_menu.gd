@@ -1,5 +1,6 @@
 extends Control
 
+var thread:Thread = Thread.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,24 +10,34 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if visible:
-		$%CurFps.text = str(Engine.get_frames_per_second())
+		%CurFps.text = str(Engine.get_frames_per_second())
 
-func UpdateConnectionStatus()->void:
-	if Snap7Cpp.IsConnected():
-		%Status.text = "true"
+func ConnectToPLC()->void:
+	call_deferred("UpdateConnectionStatus", "Connecting...")
+	var status = Snap7Cpp.ConnectToPLC(Snap7Cpp.ipAddress, 0, 1)
+	if status != 0:
+		call_deferred("UpdateConnectionStatus", "false")
+		print("connection failed")
 	else:
-		%Status.text = "false"
+		call_deferred("UpdateConnectionStatus", "true")
+		print("connected to PLC!")
+	call_deferred("ThreadFinished")
 
-func _on_ip_edit_text_submitted(new_text: String) -> void:
+func ThreadFinished()->void:
+	thread.wait_to_finish()
+
+func UpdateConnectionStatus(status:String)->void:
+	%Status.text = status
+
+func _on_ip_edit_text_changed(new_text: String) -> void:
 	Snap7Cpp.ipAddress = new_text
 
 func _on_connect_button_pressed() -> void:
-	var status = Snap7Cpp.ConnectToPLC(Snap7Cpp.ipAddress, 0, 1)
-	if status != 0:
-		print("connection failed")
-	else:
-		print("connected to PLC!")
-	UpdateConnectionStatus()
+	if thread.is_alive():
+		return
+	var status = thread.start(ConnectToPLC, Thread.PRIORITY_NORMAL)
+	if status != OK:
+		push_error("Failed to start ConnectToPLC()")
 
 func _on_vsync_button_pressed() -> void:
 	var mode = DisplayServer.window_get_vsync_mode()
@@ -38,3 +49,6 @@ func _on_vsync_button_pressed() -> void:
 func _on_fps_edit_text_submitted(new_text: String) -> void:
 	if new_text.is_valid_int():
 		Engine.max_fps = int(new_text)
+
+func _exit_tree() -> void:
+	thread.wait_to_finish()

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cby8kvk8qn60m"]
+
+[ext_resource type="Script" uid="uid://j54ophuxk3iw" path="res://src/plc_sim/test2/components/position_gate_component.gd" id="1_r5uiv"]
+
+[node name="PositionGateComponent" type="Control" unique_id=462080048]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_r5uiv")
+
+[node name="EnPos" type="Marker2D" parent="." unique_id=501856578]
+position = Vector2(0, 25)
+
+[node name="EnoPos" type="Marker2D" parent="." unique_id=482823369]
+position = Vector2(100, 25)

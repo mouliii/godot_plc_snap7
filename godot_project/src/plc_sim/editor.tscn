@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7yt7cvvvd23o"]
 
 [ext_resource type="Script" uid="uid://2sb43cvv27qt" path="res://src/plc_sim/editor.gd" id="1_6dvh7"]
-[ext_resource type="Script" uid="uid://0kghom3fhl7f" path="res://src/plc_sim/networks.gd" id="2_xahtr"]
+[ext_resource type="PackedScene" uid="uid://htrx4trcd1v2" path="res://src/plc_sim/network.tscn" id="3_xahtr"]
 
 [node name="Editor" type="Control" unique_id=478511759]
 layout_mode = 3
@@ -41,13 +41,38 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.30133548, 0.3073373, 0.44705883, 1)
 
+[node name="VBoxContainer" type="VBoxContainer" parent="TopPanel" unique_id=164585753]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Buttons" type="HBoxContainer" parent="TopPanel/VBoxContainer" unique_id=1565876889]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NO_Button" type="Button" parent="TopPanel/VBoxContainer/Buttons" unique_id=1282051808]
+layout_mode = 2
+text = "NO"
+
+[node name="NC_Button" type="Button" parent="TopPanel/VBoxContainer/Buttons" unique_id=1543123935]
+layout_mode = 2
+text = "NC"
+
+[node name="Coil_Button" type="Button" parent="TopPanel/VBoxContainer/Buttons" unique_id=238149681]
+layout_mode = 2
+text = "Coil"
+
 [node name="Networks" type="Control" parent="." unique_id=814199782]
 layout_mode = 1
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("2_xahtr")
+offset_top = 10.0
 
 [node name="ColorRect" type="ColorRect" parent="Networks" unique_id=898721790]
 layout_mode = 1
@@ -56,9 +81,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.3614619, 0.36651075, 0.36874998, 1)
+color = Color(0.7058824, 0.7058824, 0.7058824, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Networks" unique_id=1117965516]
+[node name="ScrollContainer" type="ScrollContainer" parent="Networks" unique_id=1572072326]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,27 +91,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Buttons" type="Control" parent="Networks/VBoxContainer" unique_id=65052850]
-custom_minimum_size = Vector2(0, 50)
+[node name="NetworkContainer" type="VBoxContainer" parent="Networks/ScrollContainer" unique_id=1117965516]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Network" parent="Networks/ScrollContainer/NetworkContainer" unique_id=379970613 instance=ExtResource("3_xahtr")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Networks/VBoxContainer/Buttons" unique_id=1565876889]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
-
-[node name="NO_Button" type="Button" parent="Networks/VBoxContainer/Buttons/HBoxContainer" unique_id=1282051808]
+[node name="Network2" parent="Networks/ScrollContainer/NetworkContainer" unique_id=1602000313 instance=ExtResource("3_xahtr")]
 layout_mode = 2
-text = "NO"
 
-[node name="NC_Button" type="Button" parent="Networks/VBoxContainer/Buttons/HBoxContainer" unique_id=1543123935]
-layout_mode = 2
-text = "NC"
-
-[node name="Coil_Button" type="Button" parent="Networks/VBoxContainer/Buttons/HBoxContainer" unique_id=238149681]
-layout_mode = 2
-text = "Coil"
+[connection signal="sort_children" from="Networks/ScrollContainer" to="." method="_on_scroll_container_sort_children"]
