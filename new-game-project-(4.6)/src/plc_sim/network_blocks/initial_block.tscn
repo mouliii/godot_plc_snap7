@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://dlf20jwqv0wgg"]
-
-[ext_resource type="Script" uid="uid://dqapdm12aq1ui" path="res://src/plc_sim/network_blocks/initial_block.gd" id="1_pjx1a"]
-
-[node name="InitialBlock" type="Button" unique_id=590546217]
-offset_right = 8.0
-offset_bottom = 8.0
-script = ExtResource("1_pjx1a")
-metadata/_custom_type_script = "uid://booamto66ncpl"
